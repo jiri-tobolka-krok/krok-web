@@ -12,6 +12,8 @@ cat <<HEAD
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- POZOR: před spuštěním ostrého webu SMAZAT — blokuje indexaci ve vyhledávačích -->
+<meta name="robots" content="noindex, nofollow">
 <title>${title}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

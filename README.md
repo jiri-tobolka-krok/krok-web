@@ -51,3 +51,22 @@ projet přes všechny `*.html` najednou (`sed -i '' ...`), ne ručně po jednom.
 Zatím se načítají z Google Fonts. **Před spuštěním self-hostovat** do `assets/fonts/` —
 načítání z Google Fonts posílá IP návštěvníků do USA a je to u českých školních webů
 zbytečné GDPR riziko.
+
+## ⚠️ Web je zatím schovaný před vyhledávači
+
+Každá stránka má v hlavičce:
+
+```html
+<meta name="robots" content="noindex, nofollow">
+```
+
+Dokud tam ten tag je, Google ani Seznam web nezaindexují. **Před spuštěním ostré
+verze ho musíš odstranit ze všech souborů naráz:**
+
+```bash
+perl -0pi -e 's|<!-- POZOR.*?-->\n<meta name="robots"[^>]*>\n||s' *.html tools/new-page.sh
+```
+
+`robots.txt` tu záměrně není — u GitHub Pages *project* stránek (`.github.io/krok-web/`)
+ho roboti stejně nečtou, protože platí jen `robots.txt` z kořene domény. Jakmile web
+poběží na vlastní doméně `skolakrok.cz`, dává smysl `robots.txt` doplnit.
