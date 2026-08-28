@@ -135,9 +135,9 @@ ul{margin:0;padding:0;list-style:none}
 .hero-figure .srpek{
   position:absolute;inset:0;border-radius:50%;z-index:-1;pointer-events:none;
 }
-.hero-figure .s1{transform:translate(-6%,4%);background:var(--krok-1)}
-.hero-figure .s2{transform:translate(5.2%,-4.4%);background:var(--krok-2)}
-.hero-figure .s3{transform:translate(3.6%,6%);background:var(--krok-3)}
+.hero-figure .s1{transform:translate(-3.6%,2.4%);background:var(--krok-1)}
+.hero-figure .s2{transform:translate(3.12%,-2.64%);background:var(--krok-2)}
+.hero-figure .s3{transform:translate(2.16%,3.6%);background:var(--krok-3)}
 
 .ph{
   border-radius:var(--radius);background:var(--sand);border:1px solid var(--line);
