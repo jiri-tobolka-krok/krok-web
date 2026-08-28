@@ -131,7 +131,7 @@ ul{margin:0;padding:0;list-style:none}
    ze kterých vykukují srpky ve značkových barvách */
 /* width:100% je nutná — samotné margin-inline:auto vypne roztažení
    grid položky a kruh by se scvrknul na obsah */
-.hero-figure{position:relative;isolation:isolate;width:100%;max-width:520px;margin-inline:auto}
+.hero-figure{position:relative;isolation:isolate;width:100%;max-width:min(520px,82vw);margin-inline:auto}
 .hero-figure .srpek{
   position:absolute;inset:0;border-radius:50%;z-index:-1;pointer-events:none;
 }
