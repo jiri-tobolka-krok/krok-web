@@ -238,7 +238,12 @@ ul{margin:0;padding:0;list-style:none}
 
 .person{display:flex;flex-direction:column;align-items:flex-start;gap:.2rem}
 .person-photo{position:relative;width:100%;max-width:196px;aspect-ratio:1;margin-bottom:1.15rem}
-.person-photo img{width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;background:var(--sand)}
+.person-photo img{
+  width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;background:var(--sand);
+  /* jednotný černobílý převod — barvu nese jen prstenec.
+     --tune umožňuje doladit jednotlivé fotky, které jsou moc světlé nebo tmavé. */
+  filter:grayscale(1) contrast(var(--tune-contrast,1.05)) brightness(var(--tune-brightness,1));
+}
 .person-photo::after{
   content:"";position:absolute;inset:-7px;border-radius:50%;
   border:2px solid var(--ring);pointer-events:none;
