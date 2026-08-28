@@ -363,6 +363,56 @@ ul{margin:0;padding:0;list-style:none}
   .cta-grid{grid-template-columns:1fr}
 }
 
+/* --- varianty platby ----------------------------------------------------- */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.plan{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.75rem 1.6rem;display:flex;flex-direction:column;gap:.55rem;
+}
+.plans .plan:nth-child(1) .tag{background:var(--krok-1)}
+.plans .plan:nth-child(2) .tag{background:var(--krok-2)}
+.plans .plan:nth-child(3) .tag{background:var(--krok-3)}
+.plan .amount{
+  font-family:"Poppins","Figtree",sans-serif;font-weight:800;
+  font-size:1.75rem;line-height:1.1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
+}
+.plan .when{font-size:.95rem;color:var(--ink-2);line-height:1.55}
+.plan .total{
+  margin-top:auto;padding-top:1rem;border-top:1px solid var(--line);
+  font-size:.9rem;font-weight:600;color:var(--ink-3);
+}
+.plan .total strong{color:var(--ink);font-weight:800}
+
+/* --- zvýrazněné upozornění ----------------------------------------------- */
+.callout{
+  background:#FDF6EE;border:1px solid #EBD9BF;border-left:5px solid var(--krok-4);
+  border-radius:var(--radius);padding:clamp(1.4rem,3vw,1.9rem);
+  display:flex;flex-direction:column;gap:.7rem;max-width:64ch;
+}
+.callout p{color:var(--ink-2);font-size:.97rem}
+
+/* --- co je a co není v ceně ---------------------------------------------- */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,3.25rem)}
+.excluded{display:flex;flex-direction:column}
+.excluded li{
+  display:grid;grid-template-columns:auto 1fr;gap:.85rem;align-items:start;
+  padding-block:.9rem;border-top:1px solid var(--line);color:var(--ink-2);
+}
+.excluded li:last-child{border-bottom:1px solid var(--line)}
+.excluded li::before{content:"\2013";color:var(--ink-3);font-weight:800;line-height:1.6}
+
+/* --- platební údaje ------------------------------------------------------ */
+.paydata{display:grid;grid-template-columns:repeat(2,1fr);gap:0 2.5rem}
+.paydata div{padding-block:.9rem;border-top:1px solid var(--line)}
+.paydata dt{font-size:.82rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.paydata dd{margin:.3rem 0 0;font-weight:600;font-variant-numeric:tabular-nums}
+
+@media (max-width:900px){
+  .plans{grid-template-columns:1fr}
+  .two-col{grid-template-columns:1fr}
+  .paydata{grid-template-columns:1fr}
+}
+
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
