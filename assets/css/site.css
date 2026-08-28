@@ -440,9 +440,12 @@ ul{margin:0;padding:0;list-style:none}
 /* --- hodnoty ------------------------------------------------------------- */
 .values{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .value{display:flex;flex-direction:column;gap:.85rem}
-.values .value:nth-child(1){--ring:var(--krok-1)}
-.values .value:nth-child(2){--ring:var(--krok-2)}
-.values .value:nth-child(3){--ring:var(--krok-3)}
+.values .value:nth-child(6n+1){--ring:var(--krok-1)}
+.values .value:nth-child(6n+2){--ring:var(--krok-2)}
+.values .value:nth-child(6n+3){--ring:var(--krok-3)}
+.values .value:nth-child(6n+4){--ring:var(--krok-4)}
+.values .value:nth-child(6n+5){--ring:var(--krok-1)}
+.values .value:nth-child(6n+0){--ring:var(--krok-2)}
 .value .mark{
   width:100%;height:6px;border-radius:99px;background:var(--ring);max-width:64px;
 }
@@ -455,6 +458,61 @@ ul{margin:0;padding:0;list-style:none}
   .people{grid-template-columns:1fr}
   .where{grid-template-columns:1fr}
   .values{grid-template-columns:1fr}
+}
+
+/* --- motto 1 % ----------------------------------------------------------- */
+.motto{background:var(--action-dark);color:#fff}
+.motto .eyebrow{color:#E5A8D2}
+.motto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.formula{
+  font-family:"Poppins","Figtree",sans-serif;font-weight:800;letter-spacing:-.03em;
+  font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;font-variant-numeric:tabular-nums;
+}
+.formula sup{font-size:.5em;vertical-align:super}
+.formula .eq{color:#E5A8D2}
+.motto p{color:#EAD5E4}
+.motto .flip{
+  margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.25);
+  font-size:.97rem;
+}
+
+/* --- integrované předměty ------------------------------------------------ */
+.subjects{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.subject{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;
+}
+.subjects .subject:nth-child(6n+1){--ring:var(--krok-1)}
+.subjects .subject:nth-child(6n+2){--ring:var(--krok-2)}
+.subjects .subject:nth-child(6n+3){--ring:var(--krok-3)}
+.subjects .subject:nth-child(6n+4){--ring:var(--krok-4)}
+.subjects .subject:nth-child(6n+5){--ring:var(--krok-1)}
+.subjects .subject:nth-child(6n+0){--ring:var(--krok-2)}
+.subject .tag{background:var(--ring)}
+.subject p{color:var(--ink-2);font-size:.95rem}
+
+/* --- čtyřstupňová škála hodnocení ---------------------------------------- */
+.scale{display:flex;flex-direction:column;max-width:46rem}
+.scale li{
+  display:grid;grid-template-columns:2.6rem 1fr auto;gap:1.25rem;align-items:center;
+  padding-block:1.05rem;border-top:1px solid var(--line);
+}
+.scale li:last-child{border-bottom:1px solid var(--line)}
+.scale .letter{
+  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:1.5rem;
+  color:var(--action);line-height:1;text-align:center;
+}
+.scale .what{font-weight:700}
+.scale .what small{display:block;font-weight:500;color:var(--ink-2);font-size:.92rem;line-height:1.5}
+.pips{display:flex;gap:5px;flex:none}
+.pips span{width:15px;height:15px;border-radius:4px;border:1.5px solid var(--action);background:transparent}
+.pips span.on{background:var(--action)}
+
+@media (max-width:900px){
+  .motto-grid{grid-template-columns:1fr}
+  .subjects{grid-template-columns:1fr}
+  .scale li{grid-template-columns:2.2rem 1fr;gap:.9rem}
+  .pips{grid-column:2;margin-top:.4rem}
 }
 
 /* --- responsivita -------------------------------------------------------- */
