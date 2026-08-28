@@ -515,6 +515,26 @@ ul{margin:0;padding:0;list-style:none}
   .pips{grid-column:2;margin-top:.4rem}
 }
 
+/* --- rituály (jednosloupcová varianta kritérií) --------------------------- */
+.criteria.single{grid-template-columns:1fr}
+
+/* --- odpoledne podle dnů -------------------------------------------------- */
+.weekdays{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.weekday{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.6rem 1.5rem;display:flex;flex-direction:column;gap:.6rem;
+}
+.weekdays .weekday:nth-child(1) .day{color:var(--krok-1)}
+.weekdays .weekday:nth-child(2) .day{color:var(--krok-2)}
+.weekdays .weekday:nth-child(3) .day{color:var(--krok-3)}
+.weekday .day{
+  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:1.15rem;
+  letter-spacing:-.02em;line-height:1.2;
+}
+.weekday p{color:var(--ink-2);font-size:.95rem}
+
+@media (max-width:900px){.weekdays{grid-template-columns:1fr}}
+
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
