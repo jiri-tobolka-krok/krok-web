@@ -70,3 +70,36 @@ perl -0pi -e 's|<!-- POZOR.*?-->\n<meta name="robots"[^>]*>\n||s' *.html tools/n
 `robots.txt` tu záměrně není — u GitHub Pages *project* stránek (`.github.io/krok-web/`)
 ho roboti stejně nečtou, protože platí jen `robots.txt` z kořene domény. Jakmile web
 poběží na vlastní doméně `skolakrok.cz`, dává smysl `robots.txt` doplnit.
+
+## Co udělat před spuštěním ostré verze
+
+Seznam věcí, které se záměrně odkládají na konec. Pořadí odpovídá tomu,
+v jakém se to má dělat.
+
+**1. Čisté URL bez `.html`**
+GitHub Pages nemá Apache, takže mod_rewrite ani `.htaccess` nefungují.
+Řeší se adresářovou strukturou: `zapis.html` → `zapis/index.html`, které
+server servíruje na `/zapis`. Znamená to přepsat všechny vnitřní odkazy
+a přepnout cesty k assetům na kořenové (`/assets/…`) — ty fungují z libovolné
+hloubky, ale až ve chvíli, kdy web běží na vlastní doméně, ne na
+`github.io/krok-web/`. Proto až po napojení domény.
+
+**2. Rozhodnout osud starých wixových adres**
+GitHub Pages neumí 301 přesměrování. Staré adresy (`/nas-tym`,
+`/zapis-prestupy`, `/kontakty`) po přechodu ztratí svou pozici ve
+vyhledávačích a nedá se to přesměrovat. Buď to přijmeme (homepage, která
+drží většinu hodnoty, si adresu zachová), nebo nové stránky pojmenujeme
+podle starých. **Rozhodnout dřív, než přibudou další stránky.**
+
+**3. Odstranit `noindex`** ze všech souborů — viz sekce výše.
+
+**4. Self-hostovat fonty** do `assets/fonts/` místo načítání z Google Fonts.
+
+**5. Doplnit** `robots.txt`, `sitemap.xml`, kanonické odkazy, Open Graph
+obrázky a strukturovaná data (schema.org `School`).
+
+**6. Zapéct černobílý převod fotek** do souborů místo CSS filtru:
+`sips --matchTo "/System/Library/ColorSync/Profiles/Generic Gray Gamma 2.2 Profile.icc"`
+
+**7. Vyplnit všechny žluté placeholdery** — v kódu se hledají jako
+`class="todo"`. Žádný nesmí zůstat.
