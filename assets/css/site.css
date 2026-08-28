@@ -162,8 +162,8 @@ ul{margin:0;padding:0;list-style:none}
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
   padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;
 }
-.card .tag{
-  width:34px;height:6px;border-radius:99px;display:block;
+.tag{
+  width:34px;height:6px;border-radius:99px;display:block;flex:none;
 }
 .cards .card:nth-child(1) .tag{background:var(--krok-1)}
 .cards .card:nth-child(2) .tag{background:var(--krok-2)}
