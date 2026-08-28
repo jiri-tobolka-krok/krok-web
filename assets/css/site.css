@@ -1,0 +1,265 @@
+/* ==========================================================================
+   ZŠ KROK — pracovní skica homepage
+   Barvy odečteny z fotky loga → nahradit přesnými z manuálu designera.
+   ========================================================================== */
+
+:root{
+  /* značkové barvy — čtyři písmena K-R-O-K */
+  --krok-1:#A50E7C;   --krok-1-dark:#4E0039;   /* K */
+  --krok-2:#3F9200;   --krok-2-dark:#1F4A00;   /* R */
+  --krok-3:#1B1FC4;   --krok-3-dark:#0D1070;   /* O */
+  --krok-4:#DB6B00;   --krok-4-dark:#7A3A00;   /* K */
+
+  /* neutrály s lehkým teplo-fialovým nádechem k magentě */
+  --ink:#17131A;
+  --ink-2:#4A4451;
+  --ink-3:#7C7484;
+  --paper:#FFFFFF;
+  --sand:#F6F3F0;
+  --line:#E4DFE2;
+
+  --action:var(--krok-1);
+  --action-dark:var(--krok-1-dark);
+
+  --wrap:1120px;
+  --pad:clamp(1.25rem,5vw,2.5rem);
+  --radius:14px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Figtree","Helvetica Neue",Arial,sans-serif;
+  font-size:1.0625rem;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{margin:0;text-wrap:balance;letter-spacing:-0.025em;line-height:1.08}
+h1{font-size:clamp(2.4rem,6.2vw,4.15rem);font-weight:800;letter-spacing:-0.035em}
+h2{font-size:clamp(1.8rem,3.8vw,2.7rem);font-weight:800}
+h3{font-size:1.2rem;font-weight:700;line-height:1.3}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--pad)}
+.stack{display:flex;flex-direction:column}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+
+.eyebrow{
+  font-size:.75rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.lead{font-size:clamp(1.05rem,1.9vw,1.25rem);color:var(--ink-2);max-width:34ch}
+
+:where(a,button,summary):focus-visible{
+  outline:3px solid var(--krok-3);outline-offset:3px;border-radius:4px;
+}
+
+/* --- logo (dočasná náhrada — nahradit SVG od designera) ------------------ */
+.logo{display:inline-flex;align-items:baseline;text-decoration:none;gap:.55rem}
+.logo-mark{
+  font-family:"Poppins","Figtree",sans-serif;font-weight:800;
+  font-size:1.75rem;letter-spacing:-.02em;line-height:1;display:flex;
+}
+.logo-mark span{mix-blend-mode:multiply}
+.logo-mark span+span{margin-left:-.055em}
+.logo-mark .l1{color:var(--krok-1)}
+.logo-mark .l2{color:var(--krok-2)}
+.logo-mark .l3{color:var(--krok-3)}
+.logo-mark .l4{color:var(--krok-4)}
+.logo-sub{
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+
+/* --- tlačítka ------------------------------------------------------------ */
+.btn{
+  display:inline-flex;align-items:center;gap:.5rem;
+  padding:.85rem 1.4rem;border-radius:999px;
+  font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;
+  transition:background-color .15s ease,color .15s ease,border-color .15s ease;
+}
+.btn-primary{background:var(--action);color:#fff}
+.btn-primary:hover{background:var(--action-dark)}
+.btn-ghost{border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink);background:var(--ink);color:#fff}
+.btn-light{background:#fff;color:var(--action-dark)}
+.btn-light:hover{background:#F3E6EF}
+.btn-sm{padding:.55rem 1rem;font-size:.9rem}
+
+/* --- hlavička ------------------------------------------------------------ */
+.utility{border-bottom:1px solid var(--line);font-size:.82rem}
+.utility .wrap{display:flex;justify-content:space-between;align-items:center;gap:1rem;min-height:38px}
+.utility a{text-decoration:none;color:var(--ink-2);font-weight:600}
+.utility a:hover{color:var(--action)}
+.utility ul{display:flex;gap:1.25rem}
+
+.masthead{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--line)}
+.masthead .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:74px}
+.nav{display:flex;align-items:center;gap:1.6rem}
+.nav a{text-decoration:none;font-weight:600;font-size:.97rem;color:var(--ink-2);padding-block:.4rem}
+.nav a:hover{color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);box-shadow:inset 0 -3px 0 var(--action)}
+.nav-toggle{display:none}
+
+/* --- hero ---------------------------------------------------------------- */
+.hero{padding-block:clamp(2.5rem,6vw,5rem) clamp(2rem,5vw,4rem)}
+.hero .wrap{display:grid;gap:clamp(2rem,5vw,3.5rem);grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
+.hero h1 .accent{
+  background:linear-gradient(transparent 66%,#F6D2EA 66%);
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.75rem}
+.trust{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink-3);font-weight:600}
+.trust::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--krok-2);flex:none}
+
+/* překryv barev = značkový motiv z loga */
+.hero-figure{position:relative;isolation:isolate}
+.hero-figure::before,.hero-figure::after{
+  content:"";position:absolute;border-radius:var(--radius);z-index:-1;
+}
+.hero-figure::before{inset:auto -18px -18px auto;width:62%;height:58%;background:var(--krok-3)}
+.hero-figure::after{inset:-18px auto auto -18px;width:44%;height:42%;background:var(--krok-4)}
+
+.ph{
+  border-radius:var(--radius);background:var(--sand);border:1px solid var(--line);
+  display:flex;align-items:flex-end;padding:1rem;position:relative;overflow:hidden;
+}
+.ph::after{
+  content:attr(data-label);
+  font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--ink-3);background:#fff;padding:.35rem .6rem;border-radius:99px;
+}
+.ph-hero{aspect-ratio:4/3}
+
+/* --- pás s čísly --------------------------------------------------------- */
+.facts{border-block:1px solid var(--line);padding-block:clamp(2rem,4vw,3rem)}
+.facts ul{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.25rem,3vw,2.5rem)}
+.facts li{display:flex;flex-direction:column;gap:.3rem}
+.facts .num{
+  font-family:"Poppins","Figtree",sans-serif;font-weight:800;
+  font-size:clamp(2rem,4.4vw,3rem);line-height:1;letter-spacing:-.03em;
+  font-variant-numeric:tabular-nums;
+}
+.facts li:nth-child(1) .num{color:var(--krok-1)}
+.facts li:nth-child(2) .num{color:var(--krok-2)}
+.facts li:nth-child(3) .num{color:var(--krok-3)}
+.facts li:nth-child(4) .num{color:var(--krok-4)}
+.facts .lbl{font-size:.95rem;color:var(--ink-2);font-weight:500;line-height:1.35}
+
+/* --- sekce --------------------------------------------------------------- */
+.section{padding-block:clamp(3rem,7vw,5.5rem)}
+.section-sand{background:var(--sand)}
+.section-head{display:flex;flex-direction:column;gap:.75rem;max-width:52ch;margin-bottom:clamp(2rem,4vw,3rem)}
+
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+.card{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;
+}
+.card .tag{
+  width:34px;height:6px;border-radius:99px;display:block;
+}
+.cards .card:nth-child(1) .tag{background:var(--krok-1)}
+.cards .card:nth-child(2) .tag{background:var(--krok-2)}
+.cards .card:nth-child(3) .tag{background:var(--krok-3)}
+.cards .card:nth-child(4) .tag{background:var(--krok-4)}
+.card p{color:var(--ink-2);font-size:.97rem}
+
+/* --- den ve škole -------------------------------------------------------- */
+.day{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.85fr);gap:clamp(2rem,5vw,3.5rem);align-items:center}
+.timeline{display:flex;flex-direction:column}
+.timeline li{display:grid;grid-template-columns:5.5rem 1fr;gap:1rem;padding-block:1rem;border-top:1px solid var(--line)}
+.timeline li:last-child{border-bottom:1px solid var(--line)}
+.timeline .t{
+  font-weight:800;font-variant-numeric:tabular-nums;color:var(--action);
+  font-size:.95rem;padding-top:.15rem;
+}
+.timeline .d{font-weight:600}
+.timeline .d small{display:block;font-weight:500;color:var(--ink-2);font-size:.92rem}
+.ph-day{aspect-ratio:3/4}
+
+/* --- termíny (jediné hlasité místo stránky) ------------------------------ */
+.dates{background:var(--action-dark);color:#fff}
+.dates .section-head{color:#fff}
+.dates .eyebrow{color:#E5A8D2}
+.dates-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+.date-card{
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
+  border-radius:var(--radius);padding:1.75rem;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;
+}
+.date-card .when{font-family:"Poppins",sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;line-height:1.15}
+.date-card p{color:#EAD5E4;font-size:.97rem}
+.date-card .btn{margin-top:.5rem}
+
+/* --- citace -------------------------------------------------------------- */
+.quote{
+  border:2px dashed var(--line);border-radius:var(--radius);padding:clamp(1.75rem,4vw,3rem);
+  display:flex;flex-direction:column;gap:1rem;max-width:60ch;
+}
+.quote blockquote{margin:0;font-size:clamp(1.2rem,2.4vw,1.6rem);font-weight:600;line-height:1.4;color:var(--ink-3)}
+.quote .who{font-size:.9rem;color:var(--ink-3);font-weight:600}
+
+/* --- aktuality ----------------------------------------------------------- */
+.news{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.news article{display:flex;flex-direction:column;gap:.7rem}
+.news .ph{aspect-ratio:16/10;margin-bottom:.3rem}
+.news time{font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.news a{text-decoration:none}
+.news a:hover h3{color:var(--action)}
+
+/* --- patička ------------------------------------------------------------- */
+.footer{background:var(--ink);color:#CFC8D4;padding-block:clamp(2.5rem,5vw,4rem);font-size:.95rem}
+.footer a{color:#CFC8D4;text-decoration:none}
+.footer a:hover{color:#fff}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem}
+.footer h3{color:#fff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;font-weight:800}
+.footer ul{display:flex;flex-direction:column;gap:.55rem}
+.footer .logo-mark{background:#fff;padding:.35rem .5rem;border-radius:8px}
+.footer-bottom{
+  margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #332C39;
+  display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.85rem;color:#8C8394;
+}
+
+/* --- responsivita -------------------------------------------------------- */
+@media (max-width:900px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-figure{order:-1}
+  .facts ul{grid-template-columns:repeat(2,1fr)}
+  .cards{grid-template-columns:repeat(2,1fr)}
+  .day{grid-template-columns:1fr}
+  .ph-day{aspect-ratio:16/10}
+  .news{grid-template-columns:1fr}
+  .dates-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .nav-toggle{
+    display:inline-flex;align-items:center;gap:.5rem;background:none;border:1px solid var(--line);
+    border-radius:99px;padding:.5rem .9rem;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--ink);
+  }
+  .nav{
+    display:none;position:absolute;left:0;right:0;top:100%;background:var(--paper);
+    border-bottom:1px solid var(--line);flex-direction:column;align-items:stretch;gap:0;
+    padding:.5rem var(--pad) 1.25rem;
+  }
+  .nav[data-open="true"]{display:flex}
+  .nav a{padding-block:.8rem;border-bottom:1px solid var(--line);font-size:1.05rem}
+  .nav .btn{margin-top:1rem;justify-content:center;border-bottom:0}
+  .masthead .wrap{position:relative}
+  .utility ul{gap:1rem}
+  .utility .socials{display:none}
+  .footer-grid{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .facts ul{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}

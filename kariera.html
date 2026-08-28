@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kariéra | ZŠ Krok</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&family=Poppins:wght@800&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<div class="utility">
+  <div class="wrap">
+    <ul>
+      <li><a href="aktuality.html">Aktuality</a></li>
+      <li><a href="kariera.html">Kariéra</a></li>
+    </ul>
+    <ul class="socials">
+      <li><a href="#">Facebook</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">YouTube</a></li>
+    </ul>
+  </div>
+</div>
+
+<header class="masthead">
+  <div class="wrap">
+    <a class="logo" href="index.html">
+      <span class="logo-mark" aria-hidden="true"><span class="l1">K</span><span class="l2">R</span><span class="l3">O</span><span class="l4">K</span></span>
+      <span class="logo-sub" aria-hidden="true">Základní škola</span>
+      <span class="visually-hidden">Základní škola Krok — domů</span>
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
+
+    <nav class="nav" id="nav">
+      <a href="o-skole.html">O škole</a>
+      <a href="jak-ucime.html">Jak učíme</a>
+      <a href="zapis.html">Zápis</a>
+      <a href="skolne.html">Školné</a>
+      <a href="tym.html">Tým</a>
+      <a href="kontakt.html">Kontakt</a>
+      <a class="btn btn-primary btn-sm" href="zapis.html">Přijďte se podívat</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <p class="eyebrow">Kariéra</p>
+        <h1>Volné pozice v ZŠ Krok</h1>
+      </div>
+      <p class="lead">Obsah téhle stránky připravujeme. Struktura webu už stojí, texty a fotky doplníme.</p>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="logo" href="index.html" style="margin-bottom:1rem">
+          <span class="logo-mark" aria-hidden="true"><span class="l1">K</span><span class="l2">R</span><span class="l3">O</span><span class="l4">K</span></span>
+        </a>
+        <p style="margin-top:1rem;max-width:32ch">Základní škola Krok<br>Šimkova 1224/2b (3. patro)<br>500 03 Hradec Králové</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li><a href="tel:+420774250689">+420 774 250 689</a></li>
+          <li><a href="mailto:info@skolakrok.cz">info@skolakrok.cz</a></li>
+          <li>Datová schránka: jujh5mk</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Web</h3>
+        <ul>
+          <li><a href="zapis.html">Zápis a přestup</a></li>
+          <li><a href="skolne.html">Školné</a></li>
+          <li><a href="kariera.html">Kariéra</a></li>
+          <li><a href="dokumenty.html">Dokumenty</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>IČ 14156407 · č. ú. 302573429/0300</p>
+      <p>Pracovní skica — srpen 2026</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var t = document.querySelector(".nav-toggle");
+  var n = document.getElementById("nav");
+  t.addEventListener("click", function () {
+    var open = n.getAttribute("data-open") === "true";
+    n.setAttribute("data-open", String(!open));
+    t.setAttribute("aria-expanded", String(!open));
+  });
+</script>
+
+</body>
+</html>

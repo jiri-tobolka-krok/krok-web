@@ -1,0 +1,7 @@
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+tools/_header.part
+tools/_footer.part
+dist/
