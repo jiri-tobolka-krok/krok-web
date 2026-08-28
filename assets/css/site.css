@@ -129,7 +129,9 @@ ul{margin:0;padding:0;list-style:none}
 
 /* úvodní fotka v kruhu z písmene O, za ní posunuté barevné kruhy —
    ze kterých vykukují srpky ve značkových barvách */
-.hero-figure{position:relative;isolation:isolate;max-width:520px;margin-inline:auto}
+/* width:100% je nutná — samotné margin-inline:auto vypne roztažení
+   grid položky a kruh by se scvrknul na obsah */
+.hero-figure{position:relative;isolation:isolate;width:100%;max-width:520px;margin-inline:auto}
 .hero-figure .srpek{
   position:absolute;inset:0;border-radius:50%;z-index:-1;pointer-events:none;
 }
