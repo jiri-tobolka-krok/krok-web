@@ -609,8 +609,10 @@ ul{margin:0;padding:0;list-style:none}
 
 /* --- dvojice vzorců (O škole) -------------------------------------------- */
 .formula-pair{display:flex;flex-direction:column;gap:1.9rem}
-.formula-pair .formula{font-size:clamp(1.9rem,4.6vw,2.9rem)}
-.formula-pair .dolu{color:#E5A8D2}
+/* .motto p barví text tlumeně růžově — vzorec nahoru chceme bílý,
+   dolů zůstane tlumený, aby byla dvojice odlišitelná i bez čtení */
+.formula-pair .formula{font-size:clamp(1.9rem,4.6vw,2.9rem);color:#fff}
+.formula-pair .formula.dolu{color:#E5A8D2}
 .formula-pozn{margin-top:.5rem;color:#EAD5E4;font-size:.97rem;max-width:34ch}
 
 /* --- responsivita -------------------------------------------------------- */
