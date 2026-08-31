@@ -551,6 +551,39 @@ ul{margin:0;padding:0;list-style:none}
 
 @media (max-width:900px){.weekdays{grid-template-columns:1fr}}
 
+/* --- dokumenty ke stažení ------------------------------------------------ */
+.docs{display:flex;flex-direction:column;max-width:52rem}
+.doc{
+  display:grid;grid-template-columns:auto 1fr auto;gap:1.25rem;align-items:center;
+  padding-block:1.15rem;border-top:1px solid var(--line);
+}
+.doc:last-child{border-bottom:1px solid var(--line)}
+.docs .doc:nth-child(4n+1) .typ{background:var(--krok-1)}
+.docs .doc:nth-child(4n+2) .typ{background:var(--krok-2)}
+.docs .doc:nth-child(4n+3) .typ{background:var(--krok-3)}
+.docs .doc:nth-child(4n+0) .typ{background:var(--krok-4)}
+.doc .typ{
+  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:.68rem;
+  letter-spacing:.06em;color:#fff;padding:.35rem .5rem;border-radius:6px;line-height:1;
+}
+.doc .nazev{font-weight:700}
+.doc .nazev small{display:block;font-weight:500;color:var(--ink-2);font-size:.92rem;line-height:1.5}
+.doc .stav{font-size:.85rem;font-weight:700;color:var(--ink-3);white-space:nowrap}
+
+/* --- prázdný stav (nikoho nehledáme, žádné aktuality…) ------------------- */
+.prazdno{
+  border:2px dashed var(--line);border-radius:var(--radius);
+  padding:clamp(2rem,5vw,3.25rem);display:flex;flex-direction:column;
+  gap:1rem;align-items:flex-start;max-width:60ch;
+}
+.prazdno h2{font-size:1.6rem}
+.prazdno p{color:var(--ink-2)}
+
+@media (max-width:700px){
+  .doc{grid-template-columns:auto 1fr;gap:.9rem}
+  .doc .stav{grid-column:2}
+}
+
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
