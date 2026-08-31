@@ -274,15 +274,23 @@
         if (!z.isIntersecting || bezi) return;
         bezi = true;
         io.disconnect();
+        var cilText = el.getAttribute("data-cil");
         var start = null;
         function krok(cas) {
           if (start === null) start = cas;
           var p = Math.min((cas - start) / delka, 1);
           var e = 1 - Math.pow(1 - p, 3);            // zpomalení v cíli
-          var v = 1 + (cil - 1) * e;
-          el.textContent = v.toFixed(1).replace(".", ",");
-          if (p < 1) requestAnimationFrame(krok);
+          if (p < 1) {
+            el.textContent = (1 + (cil - 1) * e).toFixed(1).replace(".", ",");
+            requestAnimationFrame(krok);
+          } else {
+            el.textContent = cilText;                // přesná hodnota, ne dopočet
+          }
         }
+        // Pojistka: když prohlížeč přiškrtí animaci (přepnutá karta, úsporný
+        // režim), číslo by zamrzlo na mezihodnotě. Po uplynutí doby ho vždy
+        // dorovnáme na správný výsledek.
+        setTimeout(function () { el.textContent = cilText; }, delka + 600);
         el.textContent = "1,0";
         requestAnimationFrame(krok);
       });
