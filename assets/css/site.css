@@ -11,16 +11,17 @@
   --krok-4:#0066D8;   --krok-4-dark:#0024E4;   /* K — modrá */
   --krok-oranz:#FC4E00;                        /* oranžová zpoza písmene O */
 
-  /* neutrály s lehkým teplo-fialovým nádechem k magentě */
-  --ink:#17131A;
-  --ink-2:#4A4451;
-  --ink-3:#7C7484;
+  /* neutrály s lehkým chladným nádechem k dominantní modré */
+  --ink:#15161B;
+  --ink-2:#454A55;
+  --ink-3:#767C88;
   --paper:#FFFFFF;
-  --sand:#F6F3F0;
-  --line:#E4DFE2;
+  --sand:#F2F5F9;
+  --line:#E0E4EA;
 
-  --action:var(--krok-1);
-  --action-dark:var(--krok-1-dark);
+  /* dominantní barva webu je modrá z posledního K */
+  --action:var(--krok-4);
+  --action-dark:var(--krok-4-dark);
 
   --wrap:1120px;
   --pad:clamp(1.25rem,5vw,2.5rem);
@@ -33,7 +34,7 @@ body{
   margin:0;
   background:var(--paper);
   color:var(--ink);
-  font-family:"Figtree","Helvetica Neue",Arial,sans-serif;
+  font-family:"Inter","Helvetica Neue",Arial,sans-serif;
   font-size:1.0625rem;
   line-height:1.65;
   -webkit-font-smoothing:antialiased;
@@ -86,7 +87,7 @@ ul{margin:0;padding:0;list-style:none}
 .btn-ghost{border-color:var(--line);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--ink);background:var(--ink);color:#fff}
 .btn-light{background:#fff;color:var(--action-dark)}
-.btn-light:hover{background:#F6E5F2}
+.btn-light:hover{background:#E3EDFB}
 .btn-sm{padding:.55rem 1rem;font-size:.9rem}
 
 /* --- hlavička ------------------------------------------------------------ */
@@ -118,7 +119,7 @@ ul{margin:0;padding:0;list-style:none}
 .hero .wrap{display:grid;gap:clamp(2rem,5vw,3.5rem);grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);align-items:center}
 .hero-copy{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
 .hero h1 .accent{
-  background:linear-gradient(transparent 66%,#F8D3F0 66%);
+  background:linear-gradient(transparent 66%,#CFE0FA 66%);
 }
 .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem}
 .trust{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink-3);font-weight:600}
@@ -147,7 +148,7 @@ ul{margin:0;padding:0;list-style:none}
 .facts ul{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.25rem,3vw,2.5rem)}
 .facts li{display:flex;flex-direction:column;gap:.3rem}
 .facts .num{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;
   font-size:clamp(2rem,4.4vw,3rem);line-height:1;letter-spacing:-.03em;
   font-variant-numeric:tabular-nums;
 }
@@ -192,14 +193,14 @@ ul{margin:0;padding:0;list-style:none}
 /* --- termíny (jediné hlasité místo stránky) ------------------------------ */
 .dates{background:var(--action-dark);color:#fff}
 .dates .section-head{color:#fff}
-.dates .eyebrow{color:#E9A6D8}
+.dates .eyebrow{color:#A9C6F2}
 .dates-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
 .date-card{
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
   border-radius:var(--radius);padding:1.75rem;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;
 }
 .date-card .when{font-family:"Poppins",sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;line-height:1.15}
-.date-card p{color:#EDD3E6;font-size:.97rem}
+.date-card p{color:#D3E0F5;font-size:.97rem}
 .date-card .btn{margin-top:.5rem}
 
 /* --- citace -------------------------------------------------------------- */
@@ -257,7 +258,7 @@ ul{margin:0;padding:0;list-style:none}
   display:grid;place-items:center;border-radius:50%;background:var(--sand);
 }
 .person-photo.is-empty span{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:2.1rem;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:2.1rem;
   color:var(--ring);letter-spacing:-.02em;
 }
 .person h3{font-size:1.05rem;letter-spacing:-.015em}
@@ -299,7 +300,7 @@ ul{margin:0;padding:0;list-style:none}
 .steps .step:nth-child(4n+3){--ring:var(--krok-3)}
 .steps .step:nth-child(4n+0){--ring:var(--krok-4)}
 .step-num{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:1.35rem;line-height:1;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.35rem;line-height:1;
   color:var(--ring);width:2.9rem;height:2.9rem;border:2px solid var(--ring);border-radius:50%;
   display:grid;place-items:center;flex:none;
 }
@@ -326,7 +327,7 @@ ul{margin:0;padding:0;list-style:none}
   display:flex;flex-direction:column;gap:.5rem;
 }
 .price-tag .amount{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;color:var(--action);
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;color:var(--action);
   font-size:clamp(1.9rem,4vw,2.5rem);line-height:1;letter-spacing:-.03em;
   font-variant-numeric:tabular-nums;
 }
@@ -351,7 +352,7 @@ ul{margin:0;padding:0;list-style:none}
 
 /* --- závěrečná výzva (tmavý pás) ----------------------------------------- */
 .cta-band{background:var(--action-dark);color:#fff}
-.cta-band .eyebrow{color:#E9A6D8}
+.cta-band .eyebrow{color:#A9C6F2}
 .cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
 .cta-card{
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
@@ -359,7 +360,7 @@ ul{margin:0;padding:0;list-style:none}
   gap:.55rem;align-items:flex-start;
 }
 .cta-card h3{color:#fff}
-.cta-card p{color:#EDD3E6;font-size:.95rem}
+.cta-card p{color:#D3E0F5;font-size:.95rem}
 .cta-card a:not(.btn){color:#fff;font-weight:700}
 
 @media (max-width:820px){
@@ -378,7 +379,7 @@ ul{margin:0;padding:0;list-style:none}
 .plans .plan:nth-child(2) .tag{background:var(--krok-2)}
 .plans .plan:nth-child(3) .tag{background:var(--krok-3)}
 .plan .amount{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;
   font-size:1.75rem;line-height:1.1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
 }
 .plan .when{font-size:.95rem;color:var(--ink-2);line-height:1.55}
@@ -467,15 +468,15 @@ ul{margin:0;padding:0;list-style:none}
 
 /* --- motto 1 % ----------------------------------------------------------- */
 .motto{background:var(--action-dark);color:#fff}
-.motto .eyebrow{color:#E9A6D8}
+.motto .eyebrow{color:#A9C6F2}
 .motto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
 .formula{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;letter-spacing:-.03em;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;letter-spacing:-.03em;
   font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;font-variant-numeric:tabular-nums;
 }
 .formula sup{font-size:.5em;vertical-align:super}
-.formula .eq{color:#E9A6D8}
-.motto p{color:#EDD3E6}
+.formula .eq{color:#A9C6F2}
+.motto p{color:#D3E0F5}
 .motto .flip{
   margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.25);
   font-size:.97rem;
@@ -504,7 +505,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 .scale li:last-child{border-bottom:1px solid var(--line)}
 .scale .letter{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:1.5rem;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.5rem;
   color:var(--action);line-height:1;text-align:center;
 }
 .scale .what{font-weight:700}
@@ -533,7 +534,7 @@ ul{margin:0;padding:0;list-style:none}
 .weekdays .weekday:nth-child(2) .day{color:var(--krok-2)}
 .weekdays .weekday:nth-child(3) .day{color:var(--krok-3)}
 .weekday .day{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:1.15rem;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.15rem;
   letter-spacing:-.02em;line-height:1.2;
 }
 .weekday p{color:var(--ink-2);font-size:.95rem}
@@ -554,7 +555,7 @@ ul{margin:0;padding:0;list-style:none}
 .docs .doc:nth-child(4n+3) .typ{background:var(--krok-3-dark)}
 .docs .doc:nth-child(4n+0) .typ{background:var(--krok-4-dark)}
 .doc .typ{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;font-size:.68rem;
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:.68rem;
   letter-spacing:.06em;color:#fff;padding:.35rem .5rem;border-radius:6px;line-height:1;
 }
 .doc .nazev{font-weight:700}
@@ -581,19 +582,19 @@ ul{margin:0;padding:0;list-style:none}
   gap:clamp(2rem,5vw,4rem);align-items:center;
 }
 .pocet{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;color:var(--action);
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;color:var(--action);
   font-size:clamp(3.5rem,10vw,6.5rem);line-height:.95;letter-spacing:-.04em;
   font-variant-numeric:tabular-nums;
   /* číslo se během animace mění — pevná šířka brání poskakování okolí */
   display:block;
 }
 .vzorec{
-  margin-top:.9rem;font-family:"Poppins","Figtree",sans-serif;font-weight:800;
+  margin-top:.9rem;font-family:"Poppins","Inter",sans-serif;font-weight:800;
   font-size:1.15rem;letter-spacing:-.02em;color:var(--ink);
 }
 .vzorec sup{font-size:.55em;vertical-align:super}
 .vzorec small{
-  display:block;margin-top:.4rem;font-family:"Figtree",sans-serif;font-weight:600;
+  display:block;margin-top:.4rem;font-family:"Inter",sans-serif;font-weight:600;
   font-size:.92rem;color:var(--ink-3);letter-spacing:0;
 }
 @media (max-width:820px){.princip-grid{grid-template-columns:1fr}}
@@ -603,8 +604,8 @@ ul{margin:0;padding:0;list-style:none}
 /* .motto p barví text tlumeně růžově — vzorec nahoru chceme bílý,
    dolů zůstane tlumený, aby byla dvojice odlišitelná i bez čtení */
 .formula-pair .formula{font-size:clamp(1.9rem,4.6vw,2.9rem);color:#fff}
-.formula-pair .formula.dolu{color:#E9A6D8}
-.formula-pozn{margin-top:.5rem;color:#EDD3E6;font-size:.97rem;max-width:34ch}
+.formula-pair .formula.dolu{color:#A9C6F2}
+.formula-pozn{margin-top:.5rem;color:#D3E0F5;font-size:.97rem;max-width:34ch}
 
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
