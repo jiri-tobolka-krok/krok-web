@@ -65,12 +65,10 @@ ul{margin:0;padding:0;list-style:none}
 /* --- logo ---------------------------------------------------------------- */
 /* Rastr z druhé iterace loga. Až přijde SVG od grafika, stačí vyměnit
    soubor — rozměry drží CSS, ne obrázek. */
-.logo{display:inline-flex;align-items:center;text-decoration:none;gap:.7rem}
+/* vedle loga už nic nestojí — "ZŠ" je součástí značky, opisovat ho
+   slovy "Základní škola" by byla duplicita */
+.logo{display:inline-flex;align-items:center;text-decoration:none}
 .logo-img{height:2.4rem;width:auto;display:block}
-.logo-sub{
-  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);
-}
 /* v patičce sedí logo na tmavém podkladu, potřebuje bílou podložku */
 .footer .logo-img{
   height:2.3rem;background:#fff;padding:.45rem .6rem;border-radius:8px;
