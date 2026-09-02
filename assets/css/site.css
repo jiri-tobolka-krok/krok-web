@@ -66,7 +66,7 @@ ul{margin:0;padding:0;list-style:none}
 /* Rastr z druhé iterace loga. Až přijde SVG od grafika, stačí vyměnit
    soubor — rozměry drží CSS, ne obrázek. */
 .logo{display:inline-flex;align-items:center;text-decoration:none;gap:.7rem}
-.logo-img{height:2rem;width:auto;display:block}
+.logo-img{height:2.4rem;width:auto;display:block}
 .logo-sub{
   font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-3);
