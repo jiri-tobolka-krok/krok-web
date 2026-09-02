@@ -62,21 +62,18 @@ ul{margin:0;padding:0;list-style:none}
   outline:3px solid var(--krok-4);outline-offset:3px;border-radius:4px;
 }
 
-/* --- logo (dočasná náhrada — nahradit SVG od designera) ------------------ */
-.logo{display:inline-flex;align-items:baseline;text-decoration:none;gap:.55rem}
-.logo-mark{
-  font-family:"Poppins","Figtree",sans-serif;font-weight:800;
-  font-size:1.75rem;letter-spacing:-.02em;line-height:1;display:flex;
-}
-.logo-mark span{mix-blend-mode:multiply}
-.logo-mark span+span{margin-left:-.055em}
-.logo-mark .l1{color:var(--krok-1)}
-.logo-mark .l2{color:var(--krok-2)}
-.logo-mark .l3{color:var(--krok-3)}
-.logo-mark .l4{color:var(--krok-4)}
+/* --- logo ---------------------------------------------------------------- */
+/* Rastr z druhé iterace loga. Až přijde SVG od grafika, stačí vyměnit
+   soubor — rozměry drží CSS, ne obrázek. */
+.logo{display:inline-flex;align-items:center;text-decoration:none;gap:.7rem}
+.logo-img{height:2rem;width:auto;display:block}
 .logo-sub{
   font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-3);
+}
+/* v patičce sedí logo na tmavém podkladu, potřebuje bílou podložku */
+.footer .logo-img{
+  height:2.3rem;background:#fff;padding:.45rem .6rem;border-radius:8px;
 }
 
 /* --- tlačítka ------------------------------------------------------------ */
@@ -231,7 +228,6 @@ ul{margin:0;padding:0;list-style:none}
 .footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:2.5rem}
 .footer h3{color:#fff;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;margin-bottom:1rem;font-weight:800}
 .footer ul{display:flex;flex-direction:column;gap:.55rem}
-.footer .logo-mark{background:#fff;padding:.35rem .5rem;border-radius:8px}
 .footer-bottom{
   margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid #332C39;
   display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;font-size:.85rem;color:#8C8394;

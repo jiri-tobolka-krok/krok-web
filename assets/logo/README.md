@@ -1,12 +1,31 @@
 # Logo
 
-Sem patří finální podklady od designera:
+`krok-logo.png` — 560 × 141 px, druhá iterace loga (září 2026).
+Ořezaný a zmenšený rastr, bílé pozadí (ne průhledné).
 
-- `krok-logo.svg` — hlavní varianta (barevná, na světlém podkladu)
+## Až přijde finální verze od grafika
+
+Ideálně **SVG**. Postup:
+
+1. Uložit jako `krok-logo.svg`
+2. V `assets/css/site.css` nic neměnit — výšku loga drží `.logo-img`,
+   ne rozměry souboru
+3. Ve všech `*.html` a v `tools/_header.part` / `tools/_footer.part`
+   přepsat cestu a rozměry:
+
+```bash
+sed -i '' 's|krok-logo.png" width="560" height="141"|krok-logo.svg"|g' *.html tools/_*.part
+```
+
+## Na co si dát pozor
+
+Současný soubor má **bílé pozadí**, ne průhledné. V patičce proto sedí
+na bílé podložce (`.footer .logo-img`). Jakmile bude logo průhledné
+a bude existovat i inverzní varianta pro tmavý podklad, podložka
+v patičce může zmizet.
+
+Hodilo by se ještě:
+
 - `krok-logo-inverzni.svg` — pro tmavé podklady
-- `krok-znacka.svg` — samotná značka bez textu (pro favicon, sociální sítě)
-- `manual.pdf` — grafický manuál (přesné barvy, ochranná zóna, minimální velikost)
-
-**Zatím tu nic není.** Logo je na webu dočasně poskládané z fontu Poppins ExtraBold
-s `mix-blend-mode: multiply` (viz `.logo-mark` v `assets/css/site.css`).
-Dojem sedí, tvary písmen ne — vyměnit hned, jak přijde SVG.
+- `krok-znacka.svg` — samotná značka bez textu, pro favicon a sociální sítě
+- `manual.pdf` — grafický manuál s přesnými barvami a ochrannou zónou
