@@ -73,10 +73,10 @@ ul{margin:0;padding:0;list-style:none}
    slovy "Základní škola" by byla duplicita */
 .logo{display:inline-flex;align-items:center;text-decoration:none}
 .logo-img{height:2.4rem;width:auto;display:block}
-/* v patičce sedí logo na tmavém podkladu, potřebuje bílou podložku */
-.footer .logo-img{
-  height:2.3rem;background:#fff;padding:.45rem .6rem;border-radius:8px;
-}
+/* V patičce je inverzní varianta — bílá kresba na černém podkladu.
+   mix-blend-mode:screen sráží černou k barvě patičky, takže obdélník
+   kolem loga zmizí a nepotřebujeme průhledné PNG. */
+.footer .logo-img{height:2.5rem;mix-blend-mode:screen}
 
 /* --- tlačítka ------------------------------------------------------------ */
 .btn{

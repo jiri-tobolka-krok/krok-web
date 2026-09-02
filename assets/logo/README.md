@@ -1,7 +1,12 @@
 # Logo
 
-`krok-logo.png` — 560 × 141 px, druhá iterace loga (září 2026).
-Ořezaný a zmenšený rastr, bílé pozadí (ne průhledné).
+`krok-logo.png` — 560 × 141 px, barevná varianta pro hlavičku.
+Bílé pozadí, ne průhledné.
+
+`krok-logo-inverzni.png` — 560 × 140 px, bílá kresba na černém pozadí,
+pro patičku a jiné tmavé podklady. Černé pozadí se v CSS sráží pomocí
+`mix-blend-mode: screen`, takže obdélník kolem loga není vidět —
+funguje to na jakémkoli tmavém podkladu bez nutnosti průhledného PNG.
 
 ## Až přijde finální verze od grafika
 
