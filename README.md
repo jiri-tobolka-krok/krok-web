@@ -94,6 +94,8 @@ podle starých. **Rozhodnout dřív, než přibudou další stránky.**
 **3. Odstranit `noindex`** ze všech souborů — viz sekce výše.
 
 **4. Self-hostovat fonty** do `assets/fonts/` místo načítání z Google Fonts.
+Pak upravit `zasady-ochrany-udaju.html` — je tam odstavec, který přiznává,
+že se IP návštěvníků odesílá Googlu. Až to přestane platit, musí zmizet.
 
 **5. Doplnit** `robots.txt`, `sitemap.xml`, kanonické odkazy, Open Graph
 obrázky a strukturovaná data (schema.org `School`).
@@ -103,3 +105,14 @@ obrázky a strukturovaná data (schema.org `School`).
 
 **7. Vyplnit všechny žluté placeholdery** — v kódu se hledají jako
 `class="todo"`. Žádný nesmí zůstat.
+
+**8. Nechat zásady ochrany údajů projít někým znalým.** Popisují reálný
+stav webu, ale nejsou to právně prověřený dokument. Stránka se navíc
+záměrně netýká zpracování údajů o dětech a rodičích — to je samostatná
+informační povinnost školy.
+
+## Staré stránky, které zanikají
+
+Z původního webu se nepřenášejí: *Inspirují nás*, *Výchovný poradce*,
+*Skautská klubovna K. Šimka* a *Rezervační systém*. Rezervační systém
+pro zápis se vyrobí znovu, až bude potřeba.
