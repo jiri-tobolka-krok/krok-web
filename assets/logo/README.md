@@ -22,6 +22,26 @@ Ideálně **SVG**. Postup:
 sed -i '' 's|krok-logo.png" width="560" height="141"|krok-logo.svg"|g' *.html tools/_*.part
 ```
 
+## Ikony
+
+`favicon.png` — 512 × 512, vyříznuté modré **K** z loga
+`apple-touch-icon.png` — 180 × 180, totéž pro přidání na plochu telefonu
+`znacka-k-modre.png` — 302 × 302, samotné K pro sociální sítě
+`znacka-k-purpurove.png` — 284 × 284, purpurová varianta téhož
+
+Modré K je zvolené proto, že modrá je dominantní barvou webu.
+Záměna za purpurové je kopie souboru:
+
+```bash
+sips -Z 512 assets/logo/znacka-k-purpurove.png --out assets/logo/favicon.png
+sips -Z 180 assets/logo/znacka-k-purpurove.png --out assets/logo/apple-touch-icon.png
+```
+
+Obě značky mají **bílé pozadí**. Pro avatar na sítích to většinou stačí,
+protože sítě podkládají profilovky bílou. Až přijde SVG, hodila by se
+i varianta s barevným pozadím a bílým K — ta je na malých kruhových
+avatarech výraznější.
+
 ## Na co si dát pozor
 
 Současný soubor má **bílé pozadí**, ne průhledné. V patičce proto sedí

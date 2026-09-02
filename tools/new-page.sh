@@ -15,6 +15,8 @@ cat <<HEAD
 <!-- POZOR: před spuštěním ostrého webu SMAZAT — blokuje indexaci ve vyhledávačích -->
 <meta name="robots" content="noindex, nofollow">
 <title>${title}</title>
+<link rel="icon" href="assets/logo/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/logo/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@800&display=swap">
