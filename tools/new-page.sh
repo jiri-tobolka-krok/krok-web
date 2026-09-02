@@ -12,7 +12,7 @@ cat <<HEAD
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- POZOR: před spuštěním ostrého webu SMAZAT — blokuje indexaci ve vyhledávačích -->
+<!-- POZOR: před spuštěním ostrého webu SMAZAT – blokuje indexaci ve vyhledávačích -->
 <meta name="robots" content="noindex, nofollow">
 <title>${title}</title>
 <link rel="icon" href="assets/logo/favicon.png" type="image/png">

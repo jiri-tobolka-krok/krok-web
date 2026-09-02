@@ -1,14 +1,14 @@
 /* ==========================================================================
-   ZŠ KROK — pracovní skica homepage
+   ZŠ KROK – pracovní skica homepage
    Barvy odečteny z fotky loga → nahradit přesnými z manuálu designera.
    ========================================================================== */
 
 :root{
-  /* značkové barvy — čtyři písmena K-R-O-K, odečteno z loga */
-  --krok-1:#BA0096;   --krok-1-dark:#7E0066;   /* K — magenta */
-  --krok-2:#3CA800;   --krok-2-dark:#007E00;   /* R — zelená */
-  --krok-3:#DE0030;   --krok-3-dark:#A0001F;   /* O — červená */
-  --krok-4:#0066D8;   --krok-4-dark:#0024E4;   /* K — modrá */
+  /* značkové barvy – čtyři písmena K-R-O-K, odečteno z loga */
+  --krok-1:#BA0096;   --krok-1-dark:#7E0066;   /* K – magenta */
+  --krok-2:#3CA800;   --krok-2-dark:#007E00;   /* R – zelená */
+  --krok-3:#DE0030;   --krok-3-dark:#A0001F;   /* O – červená */
+  --krok-4:#0066D8;   --krok-4-dark:#0024E4;   /* K – modrá */
   --krok-oranz:#FC4E00;                        /* oranžová zpoza písmene O */
 
   /* neutrály s lehkým chladným nádechem k dominantní modré */
@@ -22,7 +22,7 @@
   /* dominantní barva webu je modrá z posledního K */
   --action:var(--krok-4);
   /* Tmavé pásy potřebují hloubku, ne sytost. Logo má #0024E4, ale
-     celoplošně bzučí — proto hlubší modrá. Sytá zůstává v --krok-4-dark
+     celoplošně bzučí – proto hlubší modrá. Sytá zůstává v --krok-4-dark
      pro drobné akcenty. */
   --action-dark:#0A2E7A;
 
@@ -61,19 +61,19 @@ ul{margin:0;padding:0;list-style:none}
 }
 .lead{font-size:clamp(1.05rem,1.9vw,1.25rem);color:var(--ink-2);max-width:34ch}
 
-/* zaměření klávesnicí modře, ne červeně — červená čte jako chyba */
+/* zaměření klávesnicí modře, ne červeně – červená čte jako chyba */
 :where(a,button,summary):focus-visible{
   outline:3px solid var(--krok-4);outline-offset:3px;border-radius:4px;
 }
 
 /* --- logo ---------------------------------------------------------------- */
 /* Rastr z druhé iterace loga. Až přijde SVG od grafika, stačí vyměnit
-   soubor — rozměry drží CSS, ne obrázek. */
-/* vedle loga už nic nestojí — "ZŠ" je součástí značky, opisovat ho
+   soubor – rozměry drží CSS, ne obrázek. */
+/* vedle loga už nic nestojí – "ZŠ" je součástí značky, opisovat ho
    slovy "Základní škola" by byla duplicita */
 .logo{display:inline-flex;align-items:center;text-decoration:none}
 .logo-img{height:2.4rem;width:auto;display:block}
-/* V patičce je inverzní varianta — bílá kresba na černém podkladu.
+/* V patičce je inverzní varianta – bílá kresba na černém podkladu.
    mix-blend-mode:screen sráží černou k barvě patičky, takže obdélník
    kolem loga zmizí a nepotřebujeme průhledné PNG. */
 .footer .logo-img{height:2.5rem;mix-blend-mode:screen}
@@ -109,7 +109,7 @@ ul{margin:0;padding:0;list-style:none}
   color:var(--ink-2);padding-block:.5rem;
 }
 .nav a:not(.btn):hover{color:var(--ink)}
-/* aktivní stránka — pruh pod položkou; ::after ať nekoliduje s box-shadow */
+/* aktivní stránka – pruh pod položkou; ::after ať nekoliduje s box-shadow */
 .nav a:not(.btn)[aria-current="page"]{color:var(--ink)}
 .nav a:not(.btn)[aria-current="page"]::after{
   content:"";position:absolute;left:0;right:0;bottom:-1px;
@@ -128,8 +128,8 @@ ul{margin:0;padding:0;list-style:none}
 .trust{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink-3);font-weight:600}
 .trust::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--krok-2);flex:none}
 
-/* úvodní fotka v kruhu z písmene O — bez rámečku, barvu nese samotná fotka */
-/* width:100% je nutná — samotné margin-inline:auto vypne roztažení
+/* úvodní fotka v kruhu z písmene O – bez rámečku, barvu nese samotná fotka */
+/* width:100% je nutná – samotné margin-inline:auto vypne roztažení
    grid položky a kruh by se scvrknul na obsah */
 .hero-figure{position:relative;width:100%;max-width:min(520px,88vw);margin-inline:auto}
 
@@ -249,7 +249,7 @@ ul{margin:0;padding:0;list-style:none}
 .person-photo{position:relative;width:100%;max-width:196px;aspect-ratio:1;margin-bottom:1.15rem}
 .person-photo img{
   width:100%;height:100%;object-fit:cover;border-radius:50%;display:block;background:var(--sand);
-  /* jednotný černobílý převod — barvu nese jen prstenec.
+  /* jednotný černobílý převod – barvu nese jen prstenec.
      --tune umožňuje doladit jednotlivé fotky, které jsou moc světlé nebo tmavé. */
   filter:grayscale(1) contrast(var(--tune-contrast,1.05)) brightness(var(--tune-brightness,1));
 }
@@ -551,7 +551,7 @@ ul{margin:0;padding:0;list-style:none}
   padding-block:1.15rem;border-top:1px solid var(--line);
 }
 .doc:last-child{border-bottom:1px solid var(--line)}
-/* drobný bílý text — proto tmavé varianty, světlá zelená má na bílém
+/* drobný bílý text – proto tmavé varianty, světlá zelená má na bílém
    textu jen 3,09:1 a neprošla by */
 .docs .doc:nth-child(4n+1) .typ{background:var(--krok-1-dark)}
 .docs .doc:nth-child(4n+2) .typ{background:var(--krok-2-dark)}
@@ -588,7 +588,7 @@ ul{margin:0;padding:0;list-style:none}
   font-family:"Poppins","Inter",sans-serif;font-weight:800;color:var(--action);
   font-size:clamp(3.5rem,10vw,6.5rem);line-height:.95;letter-spacing:-.04em;
   font-variant-numeric:tabular-nums;
-  /* číslo se během animace mění — pevná šířka brání poskakování okolí */
+  /* číslo se během animace mění – pevná šířka brání poskakování okolí */
   display:block;
 }
 .vzorec{
@@ -604,7 +604,7 @@ ul{margin:0;padding:0;list-style:none}
 
 /* --- dvojice vzorců (O škole) -------------------------------------------- */
 .formula-pair{display:flex;flex-direction:column;gap:1.9rem}
-/* .motto p barví text tlumeně růžově — vzorec nahoru chceme bílý,
+/* .motto p barví text tlumeně růžově – vzorec nahoru chceme bílý,
    dolů zůstane tlumený, aby byla dvojice odlišitelná i bez čtení */
 .formula-pair .formula{font-size:clamp(1.9rem,4.6vw,2.9rem);color:#fff}
 .formula-pair .formula.dolu{color:#A9C6F2}
