@@ -750,6 +750,35 @@ ul{margin:0;padding:0;list-style:none}
   .rust.rust-jemna li::before{top:0;left:-7px}
 }
 
+/* --- tok dne -------------------------------------------------------------
+   Pět zastavení na jedné lince. Dopolední část má plnou linku a plné
+   puntíky, odpolední přechází do čárkované a prázdných – změnu rytmu
+   tak vyjadřuje sama grafika, bez legendy. */
+.tok{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;margin:0;padding:0}
+.tok li{
+  position:relative;padding:1.9rem .75rem 0 0;
+  border-top:2px solid var(--action);
+  font-size:.97rem;font-weight:700;color:var(--ink);line-height:1.35;
+}
+.tok li::before{
+  content:"";position:absolute;top:-8px;left:0;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--action);border:2px solid var(--action);
+}
+.tok li.volne{border-top-style:dashed;border-top-color:var(--ink-3);color:var(--ink-2)}
+.tok li.volne::before{background:var(--paper);border-color:var(--ink-3)}
+
+@media (max-width:760px){
+  .tok{grid-template-columns:1fr}
+  .tok li{
+    border-top:0;border-left:2px solid var(--action);
+    padding:0 0 1.4rem 1.6rem;
+  }
+  .tok li.volne{border-left-style:dashed;border-left-color:var(--ink-3);border-top:0}
+  .tok li:last-child{border-left-color:transparent;padding-bottom:0}
+  .tok li::before{top:0;left:-8px}
+}
+
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
