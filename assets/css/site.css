@@ -747,7 +747,10 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 @media (max-width:820px){
-  .cesta-cisla{grid-template-columns:1fr}
+  /* .cesta-4 má vyšší specificitu než .cesta-cisla, proto musí být
+     přebita jmenovitě – jinak by se na mobilu nezalomila */
+  .cesta-cisla,
+  .cesta-cisla.cesta-4{grid-template-columns:1fr}
   .rust.rust-jemna li::before{top:0;left:-7px}
 }
 
