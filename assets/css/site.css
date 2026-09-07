@@ -470,8 +470,10 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* --- motto 1 % ----------------------------------------------------------- */
-.motto{background:var(--action-dark);color:#fff}
-.motto .eyebrow{color:#A9C6F2}
+.motto,
+.section-dark{background:var(--action-dark);color:#fff}
+.motto .eyebrow,
+.section-dark .eyebrow{color:#A9C6F2}
 .motto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
 .formula{
   font-family:"Poppins","Inter",sans-serif;font-weight:800;letter-spacing:-.03em;
@@ -479,7 +481,8 @@ ul{margin:0;padding:0;list-style:none}
 }
 .formula sup{font-size:.5em;vertical-align:super}
 .formula .eq{color:#A9C6F2}
-.motto p{color:#D3E0F5}
+.motto p,
+.section-dark p{color:#D3E0F5}
 .motto .flip{
   margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.25);
   font-size:.97rem;
@@ -666,6 +669,57 @@ ul{margin:0;padding:0;list-style:none}
 }
 @media (max-width:560px){
   .cards-3{grid-template-columns:1fr}
+}
+
+/* --- štítky (na tmavém pásu) --------------------------------------------- */
+.chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.75rem}
+.chip{
+  border:1px solid rgba(255,255,255,.32);border-radius:99px;
+  padding:.5rem 1rem;font-size:.9rem;font-weight:600;color:#fff;white-space:nowrap;
+}
+
+/* --- cesta učení ---------------------------------------------------------
+   Čtyři úrovně jako postupná cesta, ne jako čtyři známky. Proto linka
+   s puntíky, které se plní barvou, a žádná čísla. */
+.cesta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;list-style:none;margin:0;padding:0}
+.cesta li{
+  position:relative;padding:2.25rem 1.5rem 0 0;
+  border-top:2px solid var(--line);
+  display:flex;flex-direction:column;gap:.45rem;
+}
+.cesta li::before{
+  content:"";position:absolute;top:-9px;left:0;
+  width:16px;height:16px;border-radius:50%;border:2px solid var(--action);
+  background:var(--paper);
+}
+.cesta li:nth-child(2)::before{background:color-mix(in srgb,var(--action) 34%,#fff)}
+.cesta li:nth-child(3)::before{background:color-mix(in srgb,var(--action) 67%,#fff)}
+.cesta li:nth-child(4)::before{background:var(--action)}
+.cesta li:nth-child(2){border-top-color:color-mix(in srgb,var(--action) 34%,var(--line))}
+.cesta li:nth-child(3){border-top-color:color-mix(in srgb,var(--action) 67%,var(--line))}
+.cesta li:nth-child(4){border-top-color:var(--action)}
+.cesta .stupen{
+  font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--action);
+}
+.cesta .popis{font-size:.95rem;color:var(--ink-2);line-height:1.5}
+
+/* --- osa s textovými popisky (kdy dostanete informace) -------------------- */
+.rust.rust-text .rok{
+  font-family:"Inter",sans-serif;font-size:1.05rem;font-weight:800;
+  letter-spacing:-.01em;color:var(--ink);
+}
+
+@media (max-width:820px){
+  .cesta{grid-template-columns:1fr}
+  .cesta li{
+    border-top:0;border-left:2px solid var(--line);
+    padding:0 0 1.75rem 1.75rem;
+  }
+  .cesta li::before{top:0;left:-9px}
+  .cesta li:nth-child(2){border-left-color:color-mix(in srgb,var(--action) 34%,var(--line))}
+  .cesta li:nth-child(3){border-left-color:color-mix(in srgb,var(--action) 67%,var(--line))}
+  .cesta li:nth-child(4){border-left-color:transparent;padding-bottom:0}
 }
 
 /* --- responsivita -------------------------------------------------------- */
