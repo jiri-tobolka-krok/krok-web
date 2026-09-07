@@ -779,6 +779,42 @@ ul{margin:0;padding:0;list-style:none}
   .tok li::before{top:0;left:-8px}
 }
 
+/* --- cesta dnem (Den ve škole) -------------------------------------------
+   Pět zastavení s popisem. Odpolední část přechází do čárkované linky
+   a prázdných puntíků – uvolnění rytmu je vidět, nemusí se vysvětlovat. */
+.denni-tok{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;margin:0;padding:0}
+.denni-tok li{
+  position:relative;padding:2.1rem 1.25rem 0 0;
+  border-top:2px solid var(--action);
+  display:flex;flex-direction:column;gap:.4rem;
+}
+.denni-tok li::before{
+  content:"";position:absolute;top:-8px;left:0;
+  width:14px;height:14px;border-radius:50%;
+  background:var(--action);border:2px solid var(--action);
+}
+.denni-tok .kdy{
+  font-size:.75rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--action);font-variant-numeric:tabular-nums;
+}
+.denni-tok .nazev{font-size:1.1rem;font-weight:700;letter-spacing:-.015em;line-height:1.25}
+.denni-tok .popis{font-size:.93rem;color:var(--ink-2);line-height:1.5}
+
+.denni-tok li.volne{border-top-style:dashed;border-top-color:var(--ink-3)}
+.denni-tok li.volne::before{background:var(--paper);border-color:var(--ink-3)}
+.denni-tok li.volne .kdy{color:var(--ink-3)}
+
+@media (max-width:900px){
+  .denni-tok{grid-template-columns:1fr}
+  .denni-tok li{
+    border-top:0;border-left:2px solid var(--action);
+    padding:0 0 1.9rem 1.75rem;
+  }
+  .denni-tok li.volne{border-left-style:dashed;border-left-color:var(--ink-3);border-top:0}
+  .denni-tok li:last-child{border-left-color:transparent;padding-bottom:0}
+  .denni-tok li::before{top:0;left:-8px}
+}
+
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
