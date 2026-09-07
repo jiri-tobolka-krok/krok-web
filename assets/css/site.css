@@ -653,6 +653,21 @@ ul{margin:0;padding:0;list-style:none}
   .rust .milnik{border-left-color:var(--action)}
 }
 
+/* --- varianty mřížek -----------------------------------------------------
+   Dřív byly zapsané inline v HTML, jenže inline styl přebije media query,
+   takže se na mobilu nezalomily a obsah přetékal přes okraj obrazovky.
+   Proto jsou z nich třídy. */
+.cards-3{grid-template-columns:repeat(3,1fr)}
+.plans-2{grid-template-columns:repeat(2,1fr);max-width:52rem}
+
+@media (max-width:900px){
+  .cards-3{grid-template-columns:repeat(2,1fr)}
+  .plans-2{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .cards-3{grid-template-columns:1fr}
+}
+
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
   .hero .wrap{grid-template-columns:1fr}
