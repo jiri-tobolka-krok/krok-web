@@ -724,6 +724,7 @@ ul{margin:0;padding:0;list-style:none}
 
 /* --- osa se stupni (varianta cesty s čísly, výraznější) ------------------- */
 .cesta-cisla{grid-template-columns:repeat(3,1fr)}
+.cesta-cisla.cesta-4{grid-template-columns:repeat(4,1fr)}
 .cesta-cisla .cislo{
   font-family:"Poppins","Inter",sans-serif;font-weight:800;
   font-size:clamp(1.6rem,3.4vw,2.2rem);line-height:1;letter-spacing:-.03em;
@@ -814,6 +815,32 @@ ul{margin:0;padding:0;list-style:none}
   .denni-tok li:last-child{border-left-color:transparent;padding-bottom:0}
   .denni-tok li::before{top:0;left:-8px}
 }
+
+/* --- dvě oblasti kritérií ------------------------------------------------ */
+.oblasti{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(1.5rem,4vw,2.5rem)}
+.oblast{
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:clamp(1.75rem,4vw,2.25rem);display:flex;flex-direction:column;gap:.7rem;
+}
+.oblast .cislo{
+  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.6rem;
+  line-height:1;color:var(--action);font-variant-numeric:tabular-nums;
+}
+.oblast p{color:var(--ink-2)}
+
+/* --- registrační výzva ---------------------------------------------------
+   Dva stavy: dokud registrace neběží, ukazujeme informaci místo
+   neaktivního tlačítka. Přepíná se odebráním třídy .zavreno. */
+.registrace{display:flex;flex-direction:column;gap:.6rem;align-items:flex-start}
+.registrace .doplnek{font-size:.9rem;color:var(--ink-3)}
+.registrace.zavreno .btn{display:none}
+.registrace:not(.zavreno) .cekame{display:none}
+.cekame{
+  border:2px dashed var(--line);border-radius:var(--radius);
+  padding:1rem 1.25rem;font-weight:600;color:var(--ink-2);max-width:46ch;
+}
+
+@media (max-width:820px){.oblasti{grid-template-columns:1fr}}
 
 /* --- responsivita -------------------------------------------------------- */
 @media (max-width:900px){
