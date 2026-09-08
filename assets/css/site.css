@@ -485,6 +485,11 @@ ul{margin:0;padding:0;list-style:none}
 /* --- motto 1 % ----------------------------------------------------------- */
 .motto,
 .section-dark{background:var(--action-dark);color:#fff}
+/* hlavička je sticky – bez odsazení by na ni odkaz #jedno-procento najel */
+.motto[id]{scroll-margin-top:clamp(5rem,9vh,7rem)}
+/* úvodní myšlenka sekce: světlejší než výklad, ale bez druhého sloganu */
+.motto-uvod{font-size:clamp(1.15rem,2.2vw,1.45rem);font-weight:600;line-height:1.45}
+.motto .motto-uvod{color:#fff}
 .motto .eyebrow,
 .section-dark .eyebrow{color:#A9C6F2}
 .motto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
@@ -618,13 +623,9 @@ ul{margin:0;padding:0;list-style:none}
 }
 @media (max-width:820px){.princip-grid{grid-template-columns:1fr}}
 
-/* --- dvojice vzorců (O škole) -------------------------------------------- */
-.formula-pair{display:flex;flex-direction:column;gap:1.9rem}
-/* .motto p barví text tlumeně růžově – vzorec nahoru chceme bílý,
-   dolů zůstane tlumený, aby byla dvojice odlišitelná i bez čtení */
-.formula-pair .formula{font-size:clamp(1.9rem,4.6vw,2.9rem);color:#fff}
-.formula-pair .formula.dolu{color:#A9C6F2}
-.formula-pozn{margin-top:.5rem;color:#D3E0F5;font-size:.97rem;max-width:34ch}
+/* --- vzorec 1 % (O škole) ------------------------------------------------ */
+/* Vzorec je teď jediný prvek levého sloupce, proto smí být velký. */
+.motto .formula{color:#fff}
 
 /* --- časová osa růstu školy ---------------------------------------------- */
 .rust{
