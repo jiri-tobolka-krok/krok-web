@@ -772,7 +772,9 @@ ul{margin:0;padding:0;list-style:none}
    Pět zastavení na jedné lince. Dopolední část má plnou linku a plné
    puntíky, odpolední přechází do čárkované a prázdných – změnu rytmu
    tak vyjadřuje sama grafika, bez legendy. */
-.tok{display:grid;grid-template-columns:repeat(5,1fr);gap:0;list-style:none;margin:0;padding:0}
+/* Sloupce se generují podle počtu fází dne. Pevný repeat(5,1fr) nechával
+   po ubrání položky prázdnou pátinu a osa se zúžila doleva. */
+.tok{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:0;list-style:none;margin:0;padding:0}
 .tok li{
   position:relative;padding:1.9rem .75rem 0 0;
   border-top:2px solid var(--action);
@@ -787,7 +789,7 @@ ul{margin:0;padding:0;list-style:none}
 .tok li.volne::before{background:var(--paper);border-color:var(--ink-3)}
 
 @media (max-width:760px){
-  .tok{grid-template-columns:1fr}
+  .tok{grid-auto-flow:row}
   .tok li{
     border-top:0;border-left:2px solid var(--action);
     padding:0 0 1.4rem 1.6rem;
