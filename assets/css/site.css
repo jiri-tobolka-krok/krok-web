@@ -197,7 +197,9 @@ ul{margin:0;padding:0;list-style:none}
 .dates{background:var(--action-dark);color:#fff}
 .dates .section-head{color:#fff}
 .dates .eyebrow{color:#A9C6F2}
-.dates-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem}
+/* auto-fit, aby jediná karta nenechávala vedle sebe prázdnou polovinu
+   ve chvíli, kdy je druhý termín skrytý */
+.dates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1.25rem}
 .date-card{
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
   border-radius:var(--radius);padding:1.75rem;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;
@@ -850,6 +852,11 @@ ul{margin:0;padding:0;list-style:none}
 .registrace.zavreno .btn{display:none}
 /* dokud je registrace zavřená, nemá smysl ukazovat ani popisek pod tlačítkem */
 .registrace.zavreno .doplnek{display:none}
+/* Čekací hlášku ukazujeme jednou. Druhý blok na stránce má smysl teprve
+   ve chvíli, kdy je registrace otevřená a opakuje se v něm tlačítko;
+   dokud je zavřená, byla by to tatáž věta dvakrát pod sebou. */
+.registrace.zavreno.opakovani{display:none}
+.registrace-obal:not(:has(.registrace:not(.zavreno))){display:none}
 .registrace:not(.zavreno) .cekame{display:none}
 .cekame{
   border:2px dashed var(--line);border-radius:var(--radius);
