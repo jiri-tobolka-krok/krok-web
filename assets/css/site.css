@@ -146,6 +146,12 @@ ul{margin:0;padding:0;list-style:none}
 .ph-hero{
   aspect-ratio:1;border-radius:50%;align-items:center;justify-content:center;
 }
+/* Úvodní fotka. height:auto je nutná, jinak by atribut height="1040"
+   přebil aspect-ratio a z kruhu by byl svislý ovál. */
+.hero-foto{
+  width:100%;height:auto;aspect-ratio:1;object-fit:cover;
+  border-radius:50%;display:block;background:var(--sand);
+}
 
 /* --- pás s čísly --------------------------------------------------------- */
 .facts{border-block:1px solid var(--line);padding-block:clamp(2rem,4vw,3rem)}
