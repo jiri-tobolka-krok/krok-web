@@ -1,15 +1,17 @@
 /* ==========================================================================
-   ZŠ KROK – pracovní skica homepage
-   Barvy odečteny z fotky loga → nahradit přesnými z manuálu designera.
+   ZŠ KROK – styly webu
+   Barvy odečtené z loga → po dodání grafického manuálu ověřit proti němu.
    ========================================================================== */
 
 :root{
-  /* značkové barvy – čtyři písmena K-R-O-K, odečteno z loga */
-  --krok-1:#BA0096;   --krok-1-dark:#7E0066;   /* K – magenta */
-  --krok-2:#3CA800;   --krok-2-dark:#007E00;   /* R – zelená */
-  --krok-3:#DE0030;   --krok-3-dark:#A0001F;   /* O – červená */
-  --krok-4:#0066D8;   --krok-4-dark:#0024E4;   /* K – modrá */
-  --krok-oranz:#FC4E00;                        /* oranžová zpoza písmene O */
+  /* Značkové barvy – čtyři písmena K-R-O-K, odečtené z loga.
+     Pořadí sleduje písmena, ne odstíny: krok-1 je vždy první K.
+     Tmavé varianty mají s bílým textem kontrast 8,3:1 až 11,7:1. */
+  --krok-1:#015ADA;   --krok-1-dark:#0140A4;   /* K – modrá */
+  --krok-2:#E30033;   --krok-2-dark:#A00024;   /* R – červená */
+  --krok-3:#027500;   --krok-3-dark:#015200;   /* O – zelená */
+  --krok-4:#9B007C;   --krok-4-dark:#6D005B;   /* K – purpurová */
+  --krok-oranz:#FF5300;                        /* oranžová uvnitř písmene R */
 
   /* neutrály s lehkým chladným nádechem k dominantní modré */
   --ink:#15161B;
@@ -19,11 +21,10 @@
   --sand:#F2F5F9;
   --line:#E0E4EA;
 
-  /* dominantní barva webu je modrá z posledního K */
-  --action:var(--krok-4);
-  /* Tmavé pásy potřebují hloubku, ne sytost. Logo má #0024E4, ale
-     celoplošně bzučí – proto hlubší modrá. Sytá zůstává v --krok-4-dark
-     pro drobné akcenty. */
+  /* dominantní barva webu je modrá z prvního K */
+  --action:var(--krok-1);
+  /* Tmavé pásy potřebují hloubku, ne sytost. Značková modrá je na celou
+     plochu příliš živá, proto hlubší odstín. */
   --action-dark:#0A2E7A;
 
   --wrap:1120px;
@@ -63,7 +64,7 @@ ul{margin:0;padding:0;list-style:none}
 
 /* zaměření klávesnicí modře, ne červeně – červená čte jako chyba */
 :where(a,button,summary):focus-visible{
-  outline:3px solid var(--krok-4);outline-offset:3px;border-radius:4px;
+  outline:3px solid var(--krok-1);outline-offset:3px;border-radius:4px;
 }
 
 /* --- logo ---------------------------------------------------------------- */
@@ -126,7 +127,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem}
 .trust{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink-3);font-weight:600}
-.trust::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--krok-2);flex:none}
+.trust::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--krok-3);flex:none}
 
 /* úvodní fotka v kruhu z písmene O – bez rámečku, barvu nese samotná fotka */
 /* width:100% je nutná – samotné margin-inline:auto vypne roztažení
@@ -330,7 +331,7 @@ ul{margin:0;padding:0;list-style:none}
   padding-block:.85rem;border-top:1px solid var(--line);font-weight:500;
 }
 .criteria li::before{
-  content:"";width:9px;height:9px;border-radius:2px;background:var(--krok-4);margin-top:.6rem;
+  content:"";width:9px;height:9px;border-radius:2px;background:var(--krok-1);margin-top:.6rem;
 }
 
 /* --- školné -------------------------------------------------------------- */
@@ -354,7 +355,7 @@ ul{margin:0;padding:0;list-style:none}
   padding-block:.9rem;border-top:1px solid var(--line);
 }
 .included li:last-child{border-bottom:1px solid var(--line)}
-.included li::before{content:"\2713";color:var(--krok-2-dark);font-weight:800;line-height:1.6}
+.included li::before{content:"\2713";color:var(--krok-3-dark);font-weight:800;line-height:1.6}
 
 /* --- doplnit / provizorní údaj ------------------------------------------- */
 .todo{
