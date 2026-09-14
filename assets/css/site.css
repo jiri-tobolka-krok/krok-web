@@ -27,6 +27,11 @@
      plochu příliš živá, proto hlubší odstín. */
   --action-dark:#0A2E7A;
 
+  /* CTA má vlastní modrou: světlejší K z loga ztmavené právě tolik, aby na ní
+     bílý text prošel 4,5:1. Samotná #0383DB z loga dává jen 3,98:1.
+     Ostatní modré prvky webu dál používají --action. */
+  --cta:#0378C9;   --cta-dark:#0263A5;
+
   --wrap:1120px;
   --pad:clamp(1.25rem,5vw,2.5rem);
   --radius:14px;
@@ -82,12 +87,12 @@ ul{margin:0;padding:0;list-style:none}
 /* --- tlačítka ------------------------------------------------------------ */
 .btn{
   display:inline-flex;align-items:center;gap:.5rem;
-  padding:.85rem 1.4rem;border-radius:999px;
+  padding:.85rem 1.4rem;border-radius:17px;
   font-weight:700;font-size:1rem;text-decoration:none;border:2px solid transparent;
   transition:background-color .15s ease,color .15s ease,border-color .15s ease;
 }
-.btn-primary{background:var(--action);color:#fff}
-.btn-primary:hover{background:var(--action-dark)}
+.btn-primary{background:var(--cta);color:#fff}
+.btn-primary:hover{background:var(--cta-dark)}
 .btn-ghost{border-color:var(--line);color:var(--ink)}
 .btn-ghost:hover{border-color:var(--ink);background:var(--ink);color:#fff}
 .btn-light{background:#fff;color:var(--action-dark)}
@@ -135,8 +140,9 @@ ul{margin:0;padding:0;list-style:none}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(96deg,
-    rgba(12,16,24,.63) 0%, rgba(12,16,24,.59) 34%,
-    rgba(12,16,24,.34) 58%, rgba(12,16,24,.05) 78%, rgba(12,16,24,0) 90%);
+    rgba(12,16,24,.56) 0%, rgba(12,16,24,.53) 34%,
+    rgba(12,16,24,.34) 46%, rgba(12,16,24,.10) 58%,
+    rgba(12,16,24,.02) 68%, rgba(12,16,24,0) 76%);
 }
 .hero .wrap{width:100%}
 /* Měkký stín drží text čitelný i nad světlými odlesky podlahy,
@@ -150,7 +156,12 @@ ul{margin:0;padding:0;list-style:none}
 .hero h1 .accent{background:none}
 .hero .lead{color:rgba(255,255,255,.93)}
 .hero .trust{color:rgba(255,255,255,.84)}
-.hero .btn-ghost{border-color:rgba(255,255,255,.65);color:#fff}
+/* tenký bílý obrys; ubraný pixel obrysu se vrací do odsazení, aby tlačítko
+   zůstalo přesně stejně velké jako modré vedle něj */
+.hero .btn-ghost{
+  background:rgba(12,16,24,.16);border:1px solid rgba(255,255,255,.8);color:#fff;
+  padding:calc(.85rem + 1px) calc(1.4rem + 1px);
+}
 .hero .btn-ghost:hover{background:#fff;border-color:#fff;color:var(--ink)}
 
 .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem}
@@ -332,7 +343,7 @@ ul{margin:0;padding:0;list-style:none}
      a ne jen zleva. Výřez se posouvá k dětem na podlaze. */
   .hero{min-height:clamp(33rem,108vw,42rem)}
   .hero-obr{object-position:40% 56%}
-  .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.58) 0%,rgba(12,16,24,.60) 50%,rgba(12,16,24,.68) 100%)}
+  .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.58) 0%,rgba(12,16,24,.55) 50%,rgba(12,16,24,.60) 100%)}
   .hero-copy{max-width:none}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
   .person-photo{max-width:none}
