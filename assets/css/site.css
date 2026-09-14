@@ -699,6 +699,16 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* --- štítky (na tmavém pásu) --------------------------------------------- */
+/* Doplňkový blok uvnitř tmavé sekce. Odlišuje se jen jemnou linkou
+   a pozadím, aby nezaváděl nový typ komponenty. */
+.doplnek-blok{
+  margin-top:clamp(2rem,4vw,2.75rem);max-width:64ch;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);
+  border-radius:var(--radius);padding:clamp(1.25rem,3vw,1.75rem);
+}
+.doplnek-blok h3{margin:0 0 .6rem;font-size:1.15rem}
+.doplnek-blok p{margin:0}
+
 .chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.75rem}
 .chip{
   border:1px solid rgba(255,255,255,.32);border-radius:99px;
