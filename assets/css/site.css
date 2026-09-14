@@ -119,24 +119,40 @@ ul{margin:0;padding:0;list-style:none}
 .nav-toggle{display:none}
 
 /* --- hero ---------------------------------------------------------------- */
-.hero{padding-block:clamp(2.5rem,6vw,5rem) clamp(1.75rem,4vw,3rem)}
-.hero-copy{max-width:44rem}
-.hero-copy{display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
-.hero h1 .accent{
-  background:linear-gradient(transparent 66%,#CFE0FA 66%);
+/* Text leží na fotce. Čitelnost nese ztmavení zleva – tam, kde text je –
+   ne barevný závoj přes celý snímek. Vpravo zůstává fotka nedotčená. */
+.hero{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:flex;align-items:center;
+  min-height:clamp(30rem,52vw,46rem);
+  padding-block:clamp(3rem,7vw,5.5rem);
+  color:#fff;
 }
+.hero-obr{
+  position:absolute;inset:0;z-index:-2;width:100%;height:100%;
+  object-fit:cover;object-position:50% 75%;background:var(--ink);
+}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(96deg,
+    rgba(12,16,24,.88) 0%, rgba(12,16,24,.80) 26%,
+    rgba(12,16,24,.46) 52%, rgba(12,16,24,.08) 76%, rgba(12,16,24,0) 90%);
+}
+.hero .wrap{width:100%}
+/* užší než obsah stránky, aby text neopustil ztmavenou část snímku */
+.hero-copy{max-width:34rem;display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
+.hero .eyebrow{color:rgba(255,255,255,.84)}
+.hero h1{color:#fff}
+/* světlý podtrh je stavěný na bílé pozadí, na fotce by z něj byl blednoucí pruh */
+.hero h1 .accent{background:none}
+.hero .lead{color:rgba(255,255,255,.93)}
+.hero .trust{color:rgba(255,255,255,.84)}
+.hero .btn-ghost{border-color:rgba(255,255,255,.65);color:#fff}
+.hero .btn-ghost:hover{background:#fff;border-color:#fff;color:var(--ink)}
+
 .hero-actions{display:flex;flex-wrap:wrap;gap:.75rem}
 .trust{display:flex;align-items:center;gap:.6rem;font-size:.88rem;color:var(--ink-3);font-weight:600}
 .trust::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--krok-3);flex:none}
-
-/* Úvodní fotka přes celou šířku okna. Výřez řídí object-position:
-   na širokém okně vidí celý prostor, na mobilu se posouvá k dětem,
-   protože svislý výřez ubere skoro dvě třetiny šířky. */
-.hero-foto{margin:0 0 clamp(2.5rem,6vw,4.5rem)}
-.hero-foto img{
-  width:100%;height:clamp(300px,38vw,520px);
-  object-fit:cover;object-position:50% 75%;display:block;background:var(--sand);
-}
 
 .ph{
   border-radius:var(--radius);background:var(--sand);border:1px solid var(--line);
@@ -150,7 +166,7 @@ ul{margin:0;padding:0;list-style:none}
 /* Fotky na homepage jsou o něco tišší, aby nesoupeřily s barevným logem.
    Doladění = změna dvou čísel níž, odstranění = smazání tohoto pravidla. */
 :root{--foto-sytost:.78;--foto-kontrast:1.03}
-.hero-foto img,
+.hero-obr,
 .zivot-foto img{filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast))}
 
 /* --- pás s čísly --------------------------------------------------------- */
@@ -309,8 +325,12 @@ ul{margin:0;padding:0;list-style:none}
 
 
 @media (max-width:760px){
-  /* Na úzkém okně je fotka vyšší a výřez se posouvá k dětem na podlaze. */
-  .hero-foto img{height:min(68vh,25rem);object-position:40% 56%}
+  /* Na mobilu text pokrývá skoro celý snímek, takže ztmavení musí být plošné
+     a ne jen zleva. Výřez se posouvá k dětem na podlaze. */
+  .hero{min-height:clamp(33rem,108vw,42rem)}
+  .hero-obr{object-position:40% 56%}
+  .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.62) 0%,rgba(12,16,24,.74) 55%,rgba(12,16,24,.84) 100%)}
+  .hero-copy{max-width:none}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
   .person-photo{max-width:none}
 }
