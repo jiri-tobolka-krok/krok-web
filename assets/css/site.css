@@ -140,9 +140,9 @@ ul{margin:0;padding:0;list-style:none}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(96deg,
-    rgba(12,16,24,.56) 0%, rgba(12,16,24,.53) 34%,
-    rgba(12,16,24,.34) 46%, rgba(12,16,24,.10) 58%,
-    rgba(12,16,24,.02) 68%, rgba(12,16,24,0) 76%);
+    rgba(12,16,24,.58) 0%, rgba(12,16,24,.56) 34%,
+    rgba(12,16,24,.46) 50%, rgba(12,16,24,.16) 62%,
+    rgba(12,16,24,.02) 72%, rgba(12,16,24,0) 80%);
 }
 .hero .wrap{width:100%}
 /* Měkký stín drží text čitelný i nad světlými odlesky podlahy,
@@ -343,7 +343,7 @@ ul{margin:0;padding:0;list-style:none}
      a ne jen zleva. Výřez se posouvá k dětem na podlaze. */
   .hero{min-height:clamp(33rem,108vw,42rem)}
   .hero-obr{object-position:40% 56%}
-  .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.58) 0%,rgba(12,16,24,.55) 50%,rgba(12,16,24,.60) 100%)}
+  .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.58) 0%,rgba(12,16,24,.57) 50%,rgba(12,16,24,.62) 100%)}
   .hero-copy{max-width:none}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
   .person-photo{max-width:none}
