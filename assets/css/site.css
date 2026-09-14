@@ -135,8 +135,8 @@ ul{margin:0;padding:0;list-style:none}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(96deg,
-    rgba(12,16,24,.88) 0%, rgba(12,16,24,.80) 26%,
-    rgba(12,16,24,.46) 52%, rgba(12,16,24,.08) 76%, rgba(12,16,24,0) 90%);
+    rgba(12,16,24,.88) 0%, rgba(12,16,24,.82) 34%,
+    rgba(12,16,24,.48) 58%, rgba(12,16,24,.08) 78%, rgba(12,16,24,0) 90%);
 }
 .hero .wrap{width:100%}
 /* užší než obsah stránky, aby text neopustil ztmavenou část snímku */
