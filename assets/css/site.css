@@ -4,10 +4,20 @@
    ========================================================================== */
 
 :root{
+  /* ---- BRANDOVÁ MODRÁ ---------------------------------------------------
+     Jediné místo, kde se modrá KROKu mění. Hodnota je pracovní, dokud
+     nedostaneme finální specifikaci od autora loga – pak se přepíše tady
+     a projde celým webem.
+     Zbylé dva odstíny se z ní počítají, aby zůstal zachovaný kontrast:
+     samotná #1684E8 má s bílou 3,82:1, což stačí na velká čísla, linky
+     a tečky (práh 3,0), ale ne na běžný text a bílý text v tlačítku. */
+  --krok-blue:#1684E8;
+  --krok-blue-text:color-mix(in srgb, var(--krok-blue) 90%, #000);  /* 4,58:1 */
+  --krok-blue-dark:color-mix(in srgb, var(--krok-blue) 61%, #000);  /* 8,12:1 */
+
   /* Značkové barvy – čtyři písmena K-R-O-K, odečtené z loga.
-     Pořadí sleduje písmena, ne odstíny: krok-1 je vždy první K.
-     Tmavé varianty mají s bílým textem kontrast 8,3:1 až 11,7:1. */
-  --krok-1:#015ADA;   --krok-1-dark:#0140A4;   /* K – modrá */
+     Pořadí sleduje písmena, ne odstíny: krok-1 je vždy první K. */
+  --krok-1:var(--krok-blue);   --krok-1-dark:var(--krok-blue-dark);   /* K – modrá */
   --krok-2:#E30033;   --krok-2-dark:#A00024;   /* R – červená */
   --krok-3:#027500;   --krok-3-dark:#015200;   /* O – zelená */
   --krok-4:#9B007C;   --krok-4-dark:#6D005B;   /* K – purpurová */
@@ -21,16 +31,14 @@
   --sand:#F2F5F9;
   --line:#E0E4EA;
 
-  /* dominantní barva webu je modrá z prvního K */
-  --action:var(--krok-1);
+  /* Dominantní barva webu. Nese i odkazy v textu, proto ztmavená varianta. */
+  --action:var(--krok-blue-text);
   /* Tmavé pásy potřebují hloubku, ne sytost. Značková modrá je na celou
      plochu příliš živá, proto hlubší odstín. */
   --action-dark:#0A2E7A;
 
-  /* CTA má vlastní modrou: světlejší K z loga ztmavené právě tolik, aby na ní
-     bílý text prošel 4,5:1. Samotná #0383DB z loga dává jen 3,98:1.
-     Ostatní modré prvky webu dál používají --action. */
-  --cta:#0378C9;   --cta-dark:#0263A5;
+  /* CTA sdílí brandovou modrou; ztmavená varianta drží bílý text nad 4,5:1 */
+  --cta:var(--krok-blue-text);   --cta-dark:var(--krok-blue-dark);
 
   --wrap:1120px;
   --pad:clamp(1.25rem,5vw,2.5rem);
