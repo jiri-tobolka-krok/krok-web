@@ -135,10 +135,13 @@ ul{margin:0;padding:0;list-style:none}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(96deg,
-    rgba(12,16,24,.88) 0%, rgba(12,16,24,.82) 34%,
-    rgba(12,16,24,.48) 58%, rgba(12,16,24,.08) 78%, rgba(12,16,24,0) 90%);
+    rgba(12,16,24,.70) 0%, rgba(12,16,24,.66) 34%,
+    rgba(12,16,24,.38) 58%, rgba(12,16,24,.06) 78%, rgba(12,16,24,0) 90%);
 }
 .hero .wrap{width:100%}
+/* Měkký stín drží text čitelný i nad světlými odlesky podlahy,
+   takže závoj nemusí být tak silný. */
+.hero-copy{text-shadow:0 1px 14px rgba(8,12,20,.55)}
 /* užší než obsah stránky, aby text neopustil ztmavenou část snímku */
 .hero-copy{max-width:34rem;display:flex;flex-direction:column;gap:1.4rem;align-items:flex-start}
 .hero .eyebrow{color:rgba(255,255,255,.84)}
@@ -329,7 +332,7 @@ ul{margin:0;padding:0;list-style:none}
      a ne jen zleva. Výřez se posouvá k dětem na podlaze. */
   .hero{min-height:clamp(33rem,108vw,42rem)}
   .hero-obr{object-position:40% 56%}
-  .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.62) 0%,rgba(12,16,24,.74) 55%,rgba(12,16,24,.84) 100%)}
+  .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.66) 0%,rgba(12,16,24,.68) 50%,rgba(12,16,24,.76) 100%)}
   .hero-copy{max-width:none}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
   .person-photo{max-width:none}
