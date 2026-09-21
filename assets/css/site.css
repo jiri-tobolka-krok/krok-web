@@ -143,7 +143,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 .hero-obr{
   position:absolute;inset:0;z-index:-2;width:100%;height:100%;
-  object-fit:cover;object-position:50% 75%;background:var(--ink);
+  object-fit:cover;object-position:50% 50%;background:var(--ink);
 }
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -187,7 +187,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 /* Fotky na homepage jsou o něco tišší, aby nesoupeřily s barevným logem.
    Doladění = změna dvou čísel níž, odstranění = smazání tohoto pravidla. */
-:root{--foto-sytost:.78;--foto-kontrast:1.03}
+:root{--foto-sytost:.92;--foto-kontrast:1.01}
 .hero-obr,
 .zivot-foto img{filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast))}
 
@@ -350,7 +350,7 @@ ul{margin:0;padding:0;list-style:none}
   /* Na mobilu text pokrývá skoro celý snímek, takže ztmavení musí být plošné
      a ne jen zleva. Výřez se posouvá k dětem na podlaze. */
   .hero{min-height:clamp(33rem,108vw,42rem)}
-  .hero-obr{object-position:40% 56%}
+  .hero-obr{object-position:58% 50%}
   .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.58) 0%,rgba(12,16,24,.57) 50%,rgba(12,16,24,.62) 100%)}
   .hero-copy{max-width:none}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
