@@ -212,6 +212,10 @@ ul{margin:0;padding:0;list-style:none}
 .section-head{display:flex;flex-direction:column;gap:.75rem;max-width:52ch;margin-bottom:clamp(2rem,4vw,3rem)}
 
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
+/* Zkouška hranatých rohů – zatím jen na homepage v KROK v kostce.
+   Ostatní karty na webu zůstávají zaoblené. */
+.cards-hranate .card{border-radius:0}
+
 .card{
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
   padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.7rem;
