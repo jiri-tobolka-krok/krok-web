@@ -212,9 +212,14 @@ ul{margin:0;padding:0;list-style:none}
 .section-head{display:flex;flex-direction:column;gap:.75rem;max-width:52ch;margin-bottom:clamp(2rem,4vw,3rem)}
 
 .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-/* Zkouška hranatých rohů – zatím jen na homepage v KROK v kostce.
-   Ostatní karty na webu zůstávají zaoblené. */
-.cards-hranate .card{border-radius:0}
+/* Zkouška bez rámečku – zatím jen na homepage v KROK v kostce.
+   Sloupec značí barevná linka nahoře, ne obrys. Bez rámečku nemá smysl
+   ani vnitřní odsazení: text tak sedí přesně na hranu sloupce mřížky.
+   Mezera mezi sloupci se zvětšuje, protože je nic jiného neodděluje.
+   Ostatní karty na webu zůstávají v původní podobě. */
+.cards-hranate{gap:clamp(1.75rem,3.4vw,2.75rem)}
+.cards-hranate .card{background:none;border:0;border-radius:0;padding:0}
+.cards-hranate .card .tag{width:100%;height:3px;border-radius:0}
 
 .card{
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
