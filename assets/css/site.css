@@ -211,15 +211,7 @@ ul{margin:0;padding:0;list-style:none}
 .section-sand{background:var(--sand)}
 .section-head{display:flex;flex-direction:column;gap:.75rem;max-width:52ch;margin-bottom:clamp(2rem,4vw,3rem)}
 
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-/* Zkouška bez rámečku – zatím jen na homepage v KROK v kostce.
-   Sloupec značí barevná linka nahoře, ne obrys. Bez rámečku nemá smysl
-   ani vnitřní odsazení: text tak sedí přesně na hranu sloupce mřížky.
-   Mezera mezi sloupci se zvětšuje, protože je nic jiného neodděluje.
-   Ostatní karty na webu zůstávají v původní podobě. */
-.cards-hranate{gap:clamp(1.75rem,3.4vw,2.75rem)}
-.cards-hranate .card{background:none;border:0;border-radius:0;padding:0}
-.cards-hranate .card .tag{width:100%;height:3px;border-radius:0}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.75rem,3.4vw,2.75rem)}
 
 .card{
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
@@ -251,7 +243,7 @@ ul{margin:0;padding:0;list-style:none}
 .dates .eyebrow{color:#A9C6F2}
 /* auto-fit, aby jediná karta nenechávala vedle sebe prázdnou polovinu
    ve chvíli, kdy je druhý termín skrytý */
-.dates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:1.25rem}
+.dates-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,20rem),1fr));gap:clamp(1.75rem,3.4vw,2.75rem)}
 .date-card{
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
   border-radius:var(--radius);padding:1.75rem;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;
@@ -367,7 +359,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* --- očíslovaný postup --------------------------------------------------- */
-.steps{display:grid;gap:1rem}
+.steps{display:grid;gap:clamp(1.5rem,3vw,2.25rem)}
 .step{
   display:grid;grid-template-columns:auto 1fr;gap:1.35rem;align-items:start;
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
@@ -431,7 +423,7 @@ ul{margin:0;padding:0;list-style:none}
 /* --- závěrečná výzva (tmavý pás) ----------------------------------------- */
 .cta-band{background:var(--action-dark);color:#fff}
 .cta-band .eyebrow{color:#A9C6F2}
-.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.cta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.75rem,3.4vw,2.75rem)}
 .cta-card{
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
   border-radius:var(--radius);padding:1.6rem;display:flex;flex-direction:column;
@@ -448,7 +440,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* --- varianty platby ----------------------------------------------------- */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.75rem,3.4vw,2.75rem)}
 .plan{
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
   padding:1.75rem 1.6rem;display:flex;flex-direction:column;gap:.55rem;
@@ -469,8 +461,8 @@ ul{margin:0;padding:0;list-style:none}
 
 /* --- zvýrazněné upozornění ----------------------------------------------- */
 .callout{
-  background:#FDF6EE;border:1px solid #EBD9BF;border-left:5px solid var(--krok-oranz);
-  border-radius:var(--radius);padding:clamp(1.4rem,3vw,1.9rem);
+  background:none;border:0;border-left:3px solid var(--krok-oranz);
+  border-radius:0;padding:.15rem 0 .15rem clamp(1.1rem,2.5vw,1.5rem);
   display:flex;flex-direction:column;gap:.7rem;max-width:64ch;
 }
 .callout p{color:var(--ink-2);font-size:.97rem}
@@ -498,7 +490,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* --- kontakty ------------------------------------------------------------ */
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.75rem,3.4vw,2.75rem)}
 .contact-card{
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
   padding:1.75rem 1.6rem;display:flex;flex-direction:column;gap:.5rem;
@@ -569,7 +561,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 
 /* --- integrované předměty ------------------------------------------------ */
-.subjects{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.subjects{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.75rem,3.4vw,2.75rem)}
 .subject{
   background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
   padding:1.5rem 1.4rem;display:flex;flex-direction:column;gap:.6rem;
@@ -650,8 +642,8 @@ ul{margin:0;padding:0;list-style:none}
 
 /* --- prázdný stav (nikoho nehledáme, žádné aktuality…) ------------------- */
 .prazdno{
-  border:2px dashed var(--line);border-radius:var(--radius);
-  padding:clamp(2rem,5vw,3.25rem);display:flex;flex-direction:column;
+  border:0;border-left:3px solid var(--line);border-radius:0;
+  padding:.15rem 0 .15rem clamp(1.1rem,2.5vw,1.5rem);display:flex;flex-direction:column;
   gap:1rem;align-items:flex-start;max-width:60ch;
 }
 .prazdno h2{font-size:1.6rem}
@@ -934,8 +926,8 @@ ul{margin:0;padding:0;list-style:none}
 .registrace-obal:not(:has(.registrace:not(.zavreno))){display:none}
 .registrace:not(.zavreno) .cekame{display:none}
 .cekame{
-  border:2px dashed var(--line);border-radius:var(--radius);
-  padding:1rem 1.25rem;font-weight:600;color:var(--ink-2);max-width:46ch;
+  border:0;border-left:3px solid var(--ink-3);border-radius:0;
+  padding:.15rem 0 .15rem 1.25rem;font-weight:600;color:var(--ink-2);max-width:46ch;
 }
 
 @media (max-width:820px){.oblasti{grid-template-columns:1fr}}
@@ -1036,3 +1028,23 @@ ul{margin:0;padding:0;list-style:none}
 @media (max-width:760px){
   .hero-en::before{background:linear-gradient(180deg,rgba(12,16,24,.58) 0%,rgba(12,16,24,.57) 50%,rgba(12,16,24,.62) 100%)}
 }
+
+/* --- bez rámečků ---------------------------------------------------------
+   Obsah dělí sloupec a barevná linka, ne obrys. S rámečkem odpadá i vnitřní
+   odsazení, aby text seděl na hranu sloupce mřížky, a mezery v mřížkách se
+   zvětšují, protože sloupce už nic jiného neodděluje. */
+.card, .subject, .plan, .contact-card, .weekday,
+.oblast, .step, .date-card, .cta-card, .doplnek-blok{
+  background:none;border:0;border-radius:0;padding:0;
+}
+/* barevný štítek se mění v linku přes celou šířku sloupce */
+.card .tag, .subject .tag, .plan .tag, .contact-card .tag{width:100%;height:3px;border-radius:0}
+/* sloupce bez štítku značí linka nahoře */
+.oblast, .step{border-top:3px solid var(--akcent,var(--action));padding-top:1.15rem}
+.oblasti .oblast:nth-child(4n+1){--akcent:var(--krok-1)}
+.oblasti .oblast:nth-child(4n+2){--akcent:var(--krok-2)}
+.oblasti .oblast:nth-child(4n+3){--akcent:var(--krok-3)}
+.oblasti .oblast:nth-child(4n+0){--akcent:var(--krok-4)}
+.steps .step{--akcent:var(--ring)}
+/* na tmavém pásu by značková barva zanikla, proto vlasová bílá */
+.date-card, .cta-card, .doplnek-blok{border-top:1px solid rgba(255,255,255,.3);padding-top:1.2rem}
