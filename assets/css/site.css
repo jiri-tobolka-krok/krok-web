@@ -4,24 +4,26 @@
    ========================================================================== */
 
 :root{
-  /* ---- BRANDOVÁ MODRÁ ---------------------------------------------------
-     Jediné místo, kde se modrá KROKu mění. Hodnota je pracovní, dokud
-     nedostaneme finální specifikaci od autora loga – pak se přepíše tady
-     a projde celým webem.
-     Zbylé dva odstíny se z ní počítají, aby zůstal zachovaný kontrast:
-     samotná #1684E8 má s bílou 3,82:1, což stačí na velká čísla, linky
-     a tečky (práh 3,0), ale ne na běžný text a bílý text v tlačítku. */
-  --krok-blue:#1684E8;
-  --krok-blue-text:color-mix(in srgb, var(--krok-blue) 90%, #000);  /* 4,58:1 */
-  --krok-blue-dark:color-mix(in srgb, var(--krok-blue) 61%, #000);  /* 8,12:1 */
+  /* ---- ZNAČKOVÉ BARVY -----------------------------------------------------
+     Závazné hodnoty z loga dodaného grafikem (KROK_logo_zkratka.svg).
+     Základní tón písmene je ten, který nese jednobarevná varianta loga;
+     všechny čtyři mají s bílým textem kontrast 4,87:1 až 6,08:1, takže
+     stačí i na běžný text a na tlačítka.
+     Tónové varianty jsou světlejší (3,3:1 až 4,0:1) – patří na velká čísla,
+     linky a plochy, ne na drobný text. */
+  --krok-blue:#0064dc;
+  --krok-blue-dark:color-mix(in srgb, var(--krok-blue) 76%, #000);   /* 8,10:1 */
 
-  /* Značkové barvy – čtyři písmena K-R-O-K, odečtené z loga.
-     Pořadí sleduje písmena, ne odstíny: krok-1 je vždy první K. */
-  --krok-1:var(--krok-blue);   --krok-1-dark:var(--krok-blue-dark);   /* K – modrá */
-  --krok-2:#E30033;   --krok-2-dark:#A00024;   /* R – červená */
-  --krok-3:#027500;   --krok-3-dark:#015200;   /* O – zelená */
-  --krok-4:#9B007C;   --krok-4-dark:#6D005B;   /* K – purpurová */
-  --krok-oranz:#FF5300;                        /* oranžová uvnitř písmene R */
+  --krok-1:var(--krok-blue);   --krok-1-dark:var(--krok-blue-dark);        /* K */
+  --krok-2:#e30032;            --krok-2-dark:color-mix(in srgb, #e30032 72%, #000);  /* R */
+  --krok-3:#007300;            --krok-3-dark:color-mix(in srgb, #007300 76%, #000);  /* O */
+  --krok-4:#be0096;            --krok-4-dark:#8c0078;                      /* K */
+
+  /* světlejší tóny z loga – zatím je web nepoužívá, ale patří k paletě */
+  --krok-1-svetla:#0082fa;
+  --krok-2-svetla:#ff5000;     --krok-oranz:#ff5000;
+  --krok-3-svetla:#28a000;
+  --krok-4-svetla:#f000a0;
 
   /* neutrály s lehkým chladným nádechem k dominantní modré */
   --ink:#15161B;
@@ -32,13 +34,13 @@
   --line:#E0E4EA;
 
   /* Dominantní barva webu. Nese i odkazy v textu, proto ztmavená varianta. */
-  --action:var(--krok-blue-text);
+  --action:var(--krok-blue);
   /* Tmavé pásy potřebují hloubku, ne sytost. Značková modrá je na celou
      plochu příliš živá, proto hlubší odstín. */
   --action-dark:#0A2E7A;
 
   /* CTA sdílí brandovou modrou; ztmavená varianta drží bílý text nad 4,5:1 */
-  --cta:var(--krok-blue-text);   --cta-dark:var(--krok-blue-dark);
+  --cta:var(--krok-blue);   --cta-dark:var(--krok-blue-dark);
 
   --wrap:1120px;
   --pad:clamp(1.25rem,5vw,2.5rem);
@@ -90,7 +92,8 @@ ul{margin:0;padding:0;list-style:none}
 /* V patičce je inverzní varianta – bílá kresba na černém podkladu.
    mix-blend-mode:screen sráží černou k barvě patičky, takže obdélník
    kolem loga zmizí a nepotřebujeme průhledné PNG. */
-.footer .logo-img{height:2.5rem;mix-blend-mode:screen}
+/* inverzní logo je nově barevně správné, prolnutí už není potřeba */
+.footer .logo-img{height:2.5rem}
 
 /* --- tlačítka ------------------------------------------------------------ */
 .btn{

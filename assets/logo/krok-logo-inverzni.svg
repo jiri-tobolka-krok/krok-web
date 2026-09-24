@@ -2,45 +2,28 @@
 <svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="115.6 223.6 610.7 148.2">
   <defs>
     <style>
-      .st0 {
-        fill: #007300;
-      }
+      .st0 { fill: #fff; }
 
-      .st1 {
-        fill: #28a000;
-      }
+      .st1 { fill: #fff; }
 
-      .st2 {
-        fill: #0082fa;
-      }
+      .st2 { fill: #fff; }
 
-      .st3 {
-        fill: #be0096;
-      }
+      .st3 { fill: #fff; }
 
+      /* ZŠ nese barvu pozadí patičky (--ink); při jeho změně upravit i tady */
       .st4 {
-        fill: #fff;
+        fill: #15161B;
       }
 
-      .st5 {
-        fill: #e30032;
-      }
+      .st5 { fill: #fff; }
 
-      .st6 {
-        fill: #8c0078;
-      }
+      .st6 { fill: #fff; }
 
-      .st7 {
-        fill: #f000a0;
-      }
+      .st7 { fill: #fff; }
 
-      .st8 {
-        fill: #ff5000;
-      }
+      .st8 { fill: #fff; }
 
-      .st9 {
-        fill: #0064dc;
-      }
+      .st9 { fill: #fff; }
     </style>
   </defs>
   <g>
