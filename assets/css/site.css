@@ -92,8 +92,9 @@ ul{margin:0;padding:0;list-style:none}
 /* V patičce je inverzní varianta – bílá kresba na černém podkladu.
    mix-blend-mode:screen sráží černou k barvě patičky, takže obdélník
    kolem loga zmizí a nepotřebujeme průhledné PNG. */
-/* inverzní logo je nově barevně správné, prolnutí už není potřeba */
-.footer .logo-img{height:2.5rem}
+/* Dodané bílé logo má plnou černou, ne průhlednost. Prolnutí screen
+   černou na tmavém podkladu pohltí a bílá písmena nechá být. */
+.footer .logo-img{height:2.5rem;mix-blend-mode:screen}
 
 /* --- tlačítka ------------------------------------------------------------ */
 .btn{
