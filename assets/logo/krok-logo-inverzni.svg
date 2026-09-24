@@ -2,30 +2,31 @@
 <svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="115.6 223.6 610.7 148.2">
   <defs>
     <style>
-      /* tenký obrys v barvě výplně zaceluje vlasové švy mezi
-         sousedními tvary, které jinak prosvítají podkladem */
+      /* Obrys v barvě výplně zaceluje švy mezi sousedními tvary.
+         Celobílá varianta potřebuje širší než barevná: u ní se šev
+         nemá do čeho schovat, protože všechny tvary mají týž odstín. */
       .st0 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       .st1 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       .st2 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       .st3 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       /* ZŠ nese barvu pozadí patičky (--ink); při jeho změně upravit i tady */
@@ -36,31 +37,31 @@
       .st5 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       .st6 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       .st7 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       .st8 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
 
       .st9 {
         fill: #fff;
         stroke: #fff;
-        stroke-width: .5;
+        stroke-width: 1.6;
       }
     </style>
   </defs>
