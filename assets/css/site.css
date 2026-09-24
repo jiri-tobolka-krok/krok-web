@@ -1052,3 +1052,18 @@ ul{margin:0;padding:0;list-style:none}
 .steps .step{--akcent:var(--ring)}
 /* na tmavém pásu by značková barva zanikla, proto vlasová bílá */
 .date-card, .cta-card, .doplnek-blok{border-top:1px solid rgba(255,255,255,.3);padding-top:1.2rem}
+
+/* výpis aktualit – sloupec záznamů oddělených linkou, bez karet */
+.aktuality{display:flex;flex-direction:column}
+.aktuality article{padding-block:clamp(1.75rem,3.5vw,2.5rem);border-top:1px solid var(--line);display:flex;flex-direction:column;gap:.7rem}
+.aktuality article:last-child{border-bottom:1px solid var(--line)}
+.aktuality .datum{margin:0;font-size:.85rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3)}
+.aktuality h2{margin:0;font-size:clamp(1.3rem,2.6vw,1.75rem)}
+.aktuality p{margin:0;color:var(--ink-2)}
+.aktuality a{color:var(--action);font-weight:700;text-decoration:none}
+
+/* Anglická stránka je jedna dlouhá kapitola, proto o pětinu nižší
+   vertikální odsazení sekcí. Scope je tělo stránky, české stránky
+   si drží původní hodnoty. */
+body.en .section{padding-block:clamp(2.25rem,5.4vw,4.25rem)}
+body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
