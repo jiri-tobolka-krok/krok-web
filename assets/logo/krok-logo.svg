@@ -2,20 +2,30 @@
 <svg role="img" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="115.6 223.6 610.7 148.2">
   <defs>
     <style>
+      /* tenký obrys v barvě výplně zaceluje vlasové švy mezi
+         sousedními tvary, které jinak prosvítají podkladem */
       .st0 {
         fill: #007300;
+        stroke: #007300;
+        stroke-width: .5;
       }
 
       .st1 {
         fill: #28a000;
+        stroke: #28a000;
+        stroke-width: .5;
       }
 
       .st2 {
         fill: #0082fa;
+        stroke: #0082fa;
+        stroke-width: .5;
       }
 
       .st3 {
         fill: #be0096;
+        stroke: #be0096;
+        stroke-width: .5;
       }
 
       .st4 {
@@ -24,22 +34,32 @@
 
       .st5 {
         fill: #e30032;
+        stroke: #e30032;
+        stroke-width: .5;
       }
 
       .st6 {
         fill: #8c0078;
+        stroke: #8c0078;
+        stroke-width: .5;
       }
 
       .st7 {
         fill: #f000a0;
+        stroke: #f000a0;
+        stroke-width: .5;
       }
 
       .st8 {
         fill: #ff5000;
+        stroke: #ff5000;
+        stroke-width: .5;
       }
 
       .st9 {
         fill: #0064dc;
+        stroke: #0064dc;
+        stroke-width: .5;
       }
     </style>
   </defs>
