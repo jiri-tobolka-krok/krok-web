@@ -152,8 +152,8 @@ ul{margin:0;padding:0;list-style:none}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(96deg,
-    rgba(12,16,24,.45) 0%, rgba(12,16,24,.43) 34%,
-    rgba(12,16,24,.36) 50%, rgba(12,16,24,.13) 62%,
+    rgba(12,16,24,.59) 0%, rgba(12,16,24,.56) 34%,
+    rgba(12,16,24,.47) 50%, rgba(12,16,24,.17) 62%,
     rgba(12,16,24,.02) 72%, rgba(12,16,24,0) 80%);
 }
 .hero .wrap{width:100%}
