@@ -147,9 +147,18 @@ ul{margin:0;padding:0;list-style:none}
   padding-block:clamp(3rem,7vw,5.5rem);
   color:#fff;
 }
+/* Fotka je pod obrázkem ještě jednou jako pozadí hero. Je to tentýž
+   soubor, takže se nestahuje dvakrát, a případná mezera kolem obrázku
+   nemá kudy prosvítat – dřív se v ní ukazoval tmavý podklad jako pruh. */
+.hero::after{
+  content:"";position:absolute;inset:0;z-index:-3;
+  background:url(../img/hero-prostor.jpg) 50% 50%/cover no-repeat;
+  filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast));
+}
 .hero-obr{
   position:absolute;inset:0;z-index:-2;width:100%;height:100%;
-  object-fit:cover;object-position:50% 50%;background:var(--ink);
+  object-fit:cover;object-position:50% 50%;
+  filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast));
 }
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
@@ -344,6 +353,7 @@ ul{margin:0;padding:0;list-style:none}
      a ne jen zleva. Výřez se posouvá k dětem na podlaze. */
   .hero{min-height:clamp(33rem,108vw,42rem)}
   .hero-obr{object-position:58% 50%}
+  .hero::after{background-position:58% 50%}
   .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.50) 0%,rgba(12,16,24,.49) 50%,rgba(12,16,24,.53) 100%)}
   .hero-copy{max-width:none}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}
