@@ -196,7 +196,6 @@ ul{margin:0;padding:0;list-style:none}
    Doladění = změna dvou čísel níž, odstranění = smazání tohoto pravidla. */
 :root{--foto-sytost:.92;--foto-kontrast:1.01}
 .hero-obr,
-.zivot-foto img{filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast))}
 
 /* --- pás s čísly --------------------------------------------------------- */
 .facts{border-block:1px solid var(--line);padding-block:clamp(2rem,4vw,3rem)}
@@ -231,6 +230,9 @@ ul{margin:0;padding:0;list-style:none}
 .cards .card:nth-child(2) .tag{background:var(--krok-2)}
 .cards .card:nth-child(3) .tag{background:var(--krok-3)}
 .cards .card:nth-child(4) .tag{background:var(--krok-4)}
+/* pátá a šestá karta pokračují v rotaci od začátku, jako u předmětů */
+.cards .card:nth-child(5) .tag{background:var(--krok-1)}
+.cards .card:nth-child(6) .tag{background:var(--krok-2)}
 .card p{color:var(--ink-2);font-size:.97rem}
 
 /* --- den ve škole -------------------------------------------------------- */
@@ -268,21 +270,6 @@ ul{margin:0;padding:0;list-style:none}
 .quote .who{font-size:.9rem;color:var(--ink-3);font-weight:600}
 
 /* --- aktuality ----------------------------------------------------------- */
-/* Život v KROKu — fotografická sekce homepage. Fotky jsou hlavní nositel
-   sdělení, proto žádné karty ani ikony. Lehké prostřídání výšek dává mřížce
-   rytmus; na mobilu se ruší, jinak by vznikly nerovné mezery. */
-.zivot-foto{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(.75rem,1.6vw,1.1rem);margin-top:clamp(2rem,4vw,2.75rem)}
-.zivot-foto figure{margin:0}
-/* Čtverec, protože všechny fotky ze školy jsou na šířku – portrét by z nich
-   ukrajoval polovinu záběru. Ořez řeší obrázek sám, ne CSS. */
-/* height:auto je nutná – atribut height="800" v HTML je taky rozměr,
-   takže by se aspect-ratio ignorovalo a fotky by zůstaly vysoké 800 px. */
-.zivot-foto img{width:100%;height:auto;aspect-ratio:1;object-fit:cover;display:block;border-radius:0;background:var(--sand)}
-.zivot-foto figcaption{margin-top:.7rem;font-size:.85rem;font-weight:700;color:var(--ink-3)}
-@media (max-width:820px){
-  .zivot-foto{grid-template-columns:repeat(2,1fr)}
-}
-
 .news{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
 .news article{display:flex;flex-direction:column;gap:.7rem}
 .news .ph{aspect-ratio:16/10;margin-bottom:.3rem}
@@ -352,7 +339,6 @@ ul{margin:0;padding:0;list-style:none}
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.5rem;
 }
 .join div{display:flex;flex-direction:column;gap:.5rem;max-width:46ch}
-
 
 @media (max-width:760px){
   /* Na mobilu text pokrývá skoro celý snímek, takže ztmavení musí být plošné
@@ -1011,15 +997,8 @@ ul{margin:0;padding:0;list-style:none}
 .otazky h3{margin:0;font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.25;max-width:24ch}
 .otazky p{margin:0;color:var(--ink-2);max-width:46ch}
 
-/* text vedle jedné fotky */
-.en-media{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.8fr);gap:clamp(2rem,5vw,3.5rem);align-items:center}
-.en-media img{
-  width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;display:block;border-radius:0;
-  background:var(--sand);filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast));
-}
-
 @media (max-width:820px){
-  .zasady,.otazky,.en-media{grid-template-columns:1fr}
+  .zasady,.otazky{grid-template-columns:1fr}
 }
 
 /* Anglický hero nese dva odstavce navíc, takže je o čtvrtinu vyšší a text
