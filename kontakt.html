@@ -106,11 +106,16 @@
             <span class="floor">Škola sídlí ve 3. patře budovy.</span>
           </p>
           <div class="kde-akce">
-            <a class="btn btn-primary" href="https://mapy.com/zakladni?q=%C5%A0imkova%201224%2F2b%2C%20Hradec%20Kr%C3%A1lov%C3%A9" target="_blank" rel="noopener">Otevřít v mapách</a>
-            <a class="btn btn-ghost" href="https://maps.app.goo.gl/8ZARSkj5tPithz8LA" target="_blank" rel="noopener">Prohlédnout si vchod</a>
+            <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=%C5%A0imkova%201224%2F2b%2C%20500%2003%20Hradec%20Kr%C3%A1lov%C3%A9" target="_blank" rel="noopener">Otevřít v mapách</a>
           </div>
         </div>
-        <div class="ph" style="aspect-ratio:4/3" data-label="Foto – budova a vchod"></div>
+        <!-- Panorama vchodu. Adresa v data-embed se do stránky vloží až ve chvíli,
+             kdy návštěvník klikne – do té doby ke Googlu nic neodchází.
+             Bez JavaScriptu zůstane odkaz, který prohlídku otevře v novém okně. -->
+        <div class="prohlidka" data-embed="https://www.google.com/maps/embed?pb=!6m7!1m6!2m2!1d50.2132205!2d15.8364299!3f220.88!4f-5.13!5f1">
+          <a class="btn btn-ghost" href="https://maps.app.goo.gl/8ZARSkj5tPithz8LA" target="_blank" rel="noopener">Zobrazit prohlídku vchodu</a>
+          <p class="pozn">Panorama se načte z Google Maps. Dokud na tlačítko neklepnete, neodesílá se tam o vás nic.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -237,5 +242,28 @@
   });
 </script>
 
+<script>
+  // Prohlídka vchodu se načítá až na kliknutí. Dokud návštěvník neklikne,
+  // neodejde ke Googlu žádný požadavek – proto web nepotřebuje lištu se
+  // souhlasem. Samotné kliknutí je ten souhlas.
+  (function () {
+    var box = document.querySelector(".prohlidka");
+    if (!box) return;
+    var odkaz = box.querySelector("a");
+    var adresa = box.getAttribute("data-embed");
+    if (!odkaz || !adresa) return;
+    odkaz.addEventListener("click", function (e) {
+      e.preventDefault();
+      var ramecek = document.createElement("iframe");
+      ramecek.src = adresa;
+      ramecek.title = "Prohlídka vchodu do budovy na Google Street View";
+      ramecek.setAttribute("allowfullscreen", "");
+      ramecek.setAttribute("loading", "lazy");
+      box.textContent = "";
+      box.classList.add("nacteno");
+      box.appendChild(ramecek);
+    });
+  })();
+</script>
 </body>
 </html>
