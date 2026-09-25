@@ -6,6 +6,8 @@ PDF soubory, na které odkazuje `dokumenty.html`:
 
 - `skolni-rad.pdf`
 - `klasifikacni-rad.pdf`
+- `vyrocni-zpravy/vyrocni-zprava-RRRR-RRRR.pdf` — jedna zpráva na školní rok;
+  originály zakládáme do sbírky listin, sem patří stejný soubor
 - `zapisy-skolska-rada/skolska-rada-RRRR-MM-DD.pdf` — jeden soubor na schůzi,
   datum v názvu je datum jednání
 
