@@ -141,7 +141,10 @@ ul{margin:0;padding:0;list-style:none}
 .hero{
   position:relative;isolation:isolate;overflow:hidden;
   display:flex;align-items:center;
-  min-height:clamp(30rem,52vw,46rem);
+  /* Výška sleduje poměr úvodní fotky (2000 : 1215), aby se svisle nic
+     neořezávalo. Nad 1500 px šířky se strop uplatní a fotka se začne
+     mírně ořezávat – jinak by hero vytlačilo celou stránku pod okraj. */
+  min-height:clamp(30rem,60.8vw,57rem);
   padding-block:clamp(3rem,7vw,5.5rem);
   color:#fff;
 }
