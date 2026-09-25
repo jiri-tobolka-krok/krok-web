@@ -155,8 +155,8 @@ ul{margin:0;padding:0;list-style:none}
 .hero::before{
   content:"";position:absolute;inset:0;z-index:-1;
   background:linear-gradient(96deg,
-    rgba(12,16,24,.66) 0%, rgba(12,16,24,.63) 34%,
-    rgba(12,16,24,.53) 50%, rgba(12,16,24,.19) 62%,
+    rgba(12,16,24,.62) 0%, rgba(12,16,24,.59) 34%,
+    rgba(12,16,24,.50) 50%, rgba(12,16,24,.18) 62%,
     rgba(12,16,24,.02) 72%, rgba(12,16,24,0) 80%);
 }
 .hero .wrap{width:100%}
@@ -1033,7 +1033,7 @@ ul{margin:0;padding:0;list-style:none}
     rgba(12,16,24,.03) 72%, rgba(12,16,24,0) 80%);
 }
 @media (max-width:760px){
-  .hero-en::before{background:linear-gradient(180deg,rgba(12,16,24,.62) 0%,rgba(12,16,24,.61) 50%,rgba(12,16,24,.66) 100%)}
+  .hero-en::before{background:linear-gradient(180deg,rgba(12,16,24,.59) 0%,rgba(12,16,24,.58) 50%,rgba(12,16,24,.63) 100%)}
 }
 
 /* --- bez rámečků ---------------------------------------------------------
