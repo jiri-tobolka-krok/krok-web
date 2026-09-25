@@ -1107,3 +1107,7 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
    nechaly třetinu řádku prázdnou, proto se počet sloupců řídí obsahem.
    Mřížka s lidmi výš má tři karty a vypadá stejně jako dřív. */
 .contact-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
+
+/* Dokud přihlašování neběží, nemá smysl nabízet ani místo náhradníka –
+   žádný termín se ještě nemohl naplnit. Odemyká se spolu s tlačítky. */
+#prihlaseni.zavreno .nahradnici{display:none}
