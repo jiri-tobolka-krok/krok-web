@@ -1049,3 +1049,15 @@ ul{margin:0;padding:0;list-style:none}
    si drží původní hodnoty. */
 body.en .section{padding-block:clamp(2.25rem,5.4vw,4.25rem)}
 body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
+
+/* Přihlašování na Předškoláčcích. Bez třídy zavreno jsou vidět tlačítka,
+   s ní věta o spuštění – přepíná se jedním slovem v HTML. */
+#prihlaseni .zasady p:last-child{margin-top:.5rem}
+#prihlaseni.zavreno .btn{display:none}
+#prihlaseni:not(.zavreno) .cekame{display:none}
+#prihlaseni .cekame{margin-top:clamp(2rem,4vw,2.75rem)}
+.nahradnici{
+  margin-top:clamp(1.5rem,3vw,2rem);border-left:3px solid var(--krok-2);
+  padding:.15rem 0 .15rem 1.15rem;max-width:56ch;color:var(--ink-2);
+}
+.nahradnici a{color:var(--action);font-weight:700;text-decoration:none}

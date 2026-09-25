@@ -65,7 +65,12 @@
     </div>
   </section>
 
-  <section class="section section-sand">
+  <!-- PŘIHLAŠOVÁNÍ
+       Teď je otevřené, aby šlo otestovat proklik na formuláře.
+       Zamknutí před spuštěním: přidej třídu "zavreno" k <section> níž.
+       Pak se místo tlačítek ukáže věta o spuštění a skript v patičce
+       je odemkne sám v čase z data-otevira. -->
+  <section class="section section-sand" id="prihlaseni" data-otevira="2026-09-29T10:00:00+02:00">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Termíny</p>
@@ -75,31 +80,27 @@
         <div>
           <h3>úterý 3. listopadu 2026</h3>
           <p>15:30–17:00</p>
+          <p><a class="btn btn-primary" href="https://forms.gle/93WheR4KxTPTxdAy5" target="_blank" rel="noopener">Přihlásit na 3.&nbsp;11. &rarr;</a></p>
         </div>
         <div>
           <h3>úterý 10. listopadu 2026</h3>
           <p>15:30–17:00</p>
+          <p><a class="btn btn-primary" href="https://forms.gle/7HPixUHMpPAW1UKB7" target="_blank" rel="noopener">Přihlásit na 10.&nbsp;11. &rarr;</a></p>
         </div>
       </div>
+
+      <p class="cekame">Přihlašování spouštíme 29. 9. v 10:00.</p>
+
       <p class="prose" style="margin-top:clamp(2rem,4vw,2.75rem)">Kapacita každého termínu je maximálně 16 dětí. Zvolte si termín, který vám vyhovuje.</p>
+
+      <p class="nahradnici">Je vybraný termín už plný? <a href="https://forms.gle/qVrzXf17tUPBbKzQ7" target="_blank" rel="noopener">Zapište se mezi náhradníky &rarr;</a> Ozveme se vám, jakmile se místo uvolní.</p>
+
       <dl class="paydata" style="max-width:40rem;margin-top:clamp(1.75rem,3.5vw,2.5rem)">
         <div>
           <dt>Kde</dt>
           <dd>ZŠ Krok<br>Šimkova 1224/2b<br>Hradec Králové</dd>
         </div>
       </dl>
-
-      <!-- PŘIHLAŠOVÁNÍ
-           1. Doplň adresu formuláře do href níž místo DOPLNIT-URL-PRIHLASKA.
-           2. Tlačítko se zobrazí samo 29. 9. 2026 v 10:00 podle data v prohlížeči.
-              Dokud v href zůstane DOPLNIT-URL, skript tlačítko neodemkne,
-              aby se na web nedostal nefunkční odkaz.
-           3. Bez JavaScriptu zůstane vidět informační věta, ne mrtvé tlačítko. -->
-      <div class="registrace zavreno" id="prihlaseni" data-otevira="2026-09-29T10:00:00+02:00"
-           style="margin-top:clamp(2rem,4vw,2.75rem)">
-        <a class="btn btn-primary" href="DOPLNIT-URL-PRIHLASKA" target="_blank" rel="noopener">Přihlásit dítě</a>
-        <p class="cekame">Přihlašování spouštíme 29. 9. v 10:00.</p>
-      </div>
     </div>
   </section>
 
@@ -165,13 +166,13 @@
 </footer>
 
 <script>
-  var t = document.querySelector(".nav-toggle");
-  var n = document.getElementById("nav");
-  t.addEventListener("click", function () {
-    var open = n.getAttribute("data-open") === "true";
-    n.setAttribute("data-open", String(!open));
-    t.setAttribute("aria-expanded", String(!open));
-  });
+  // Odemkne přihlašování v čase z data-otevira. Dokud sekce nemá třídu
+  // "zavreno", je otevřené rovnou a skript nemá co dělat.
+  (function () {
+    var b = document.getElementById("prihlaseni");
+    if (!b || !b.classList.contains("zavreno")) return;
+    if (new Date() >= new Date(b.getAttribute("data-otevira"))) b.classList.remove("zavreno");
+  })();
 </script>
 
 
