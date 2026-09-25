@@ -1,10 +1,11 @@
 # Dokumenty ke stažení
 
+**Krok guide sem nepatří** – na web se nedává.
+
 PDF soubory, na které odkazuje `dokumenty.html`:
 
 - `skolni-rad.pdf`
 - `klasifikacni-rad.pdf`
-- `krok-guide.pdf`
 - `zapisy-skolska-rada/skolska-rada-RRRR-MM-DD.pdf` — jeden soubor na schůzi,
   datum v názvu je datum jednání
 
