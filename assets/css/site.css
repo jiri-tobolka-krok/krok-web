@@ -1102,3 +1102,8 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
   display:block;margin-top:.3rem;
   font-weight:500;font-size:.92rem;color:var(--ink-3);
 }
+
+/* Po odebrání YouTube zbyly na Kontaktu dvě sítě. Pevné tři sloupce by
+   nechaly třetinu řádku prázdnou, proto se počet sloupců řídí obsahem.
+   Mřížka s lidmi výš má tři karty a vypadá stejně jako dřív. */
+.contact-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
