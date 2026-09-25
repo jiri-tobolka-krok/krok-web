@@ -1111,3 +1111,7 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 /* Dokud přihlašování neběží, nemá smysl nabízet ani místo náhradníka –
    žádný termín se ještě nemohl naplnit. Odemyká se spolu s tlačítky. */
 #prihlaseni.zavreno .nahradnici{display:none}
+
+/* Dvě tlačítka pod adresou. Na úzké obrazovce se zalomí pod sebe a nezůstane
+   mezi nimi slepená mezera jako u dvou odkazů v jednom odstavci. */
+.kde-akce{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
