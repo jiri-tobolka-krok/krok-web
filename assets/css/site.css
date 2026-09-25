@@ -1128,3 +1128,8 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 .prohlidka .pozn{font-size:.82rem;line-height:1.45;color:var(--ink-3);max-width:30ch}
 .prohlidka.nacteno{display:block;padding:0;gap:0}
 .prohlidka iframe{width:100%;height:100%;border:0;display:block}
+
+/* Název dokumentu je zároveň odkaz na soubor. Modrá a tučná stačí, aby bylo
+   poznat, že se dá stáhnout – vedle je i typ souboru a rozsah. */
+.doc .nazev a{color:var(--action);text-decoration:none}
+.doc .nazev a:hover{text-decoration:underline}
