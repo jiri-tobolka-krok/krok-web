@@ -113,7 +113,7 @@
         <a class="logo" href="index.html" style="margin-bottom:1rem">
           <img class="logo-img" src="assets/logo/krok-logo-inverzni.png" width="560" height="140" alt="">
         </a>
-        <p style="margin-top:1rem;max-width:32ch">Základní škola Krok<br>Šimkova 1224/2b (3. patro)<br>500 03 Hradec Králové</p>
+        <p style="margin-top:1rem;max-width:32ch">Základní škola Krok<br>Šimkova 1224/2b (2. patro)<br>500 03 Hradec Králové</p>
       </div>
       <div>
         <h3>Kontakt</h3>
@@ -142,14 +142,18 @@
 </footer>
 
 <script>
-  var t = document.querySelector(".nav-toggle");
-  var n = document.getElementById("nav");
-  t.addEventListener("click", function () {
-    var open = n.getAttribute("data-open") === "true";
-    n.setAttribute("data-open", String(!open));
-    t.setAttribute("aria-expanded", String(!open));
-  });
+  // Rozbalení mobilního menu. Vlastní blok schválně: kdyby spadl jakýkoli
+  // jiný skript na stránce, menu musí fungovat dál.
+  (function () {
+    var t = document.querySelector(".nav-toggle");
+    var n = document.getElementById("nav");
+    if (!t || !n) return;
+    t.addEventListener("click", function () {
+      var open = n.getAttribute("data-open") === "true";
+      n.setAttribute("data-open", String(!open));
+      t.setAttribute("aria-expanded", String(!open));
+    });
+  })();
 </script>
-
 </body>
 </html>

@@ -103,7 +103,7 @@
             Základní škola Krok<br>
             Šimkova 1224/2b<br>
             500 03 Hradec Králové<br>
-            <span class="floor">Škola sídlí ve 3. patře budovy.</span>
+            <span class="floor">Škola sídlí ve 2. patře, tedy ve 3. nadzemním podlaží. Ve výtahu jeďte na 2.</span>
           </p>
           <div class="kde-akce">
             <a class="btn btn-primary" href="https://www.google.com/maps/search/?api=1&amp;query=%C5%A0imkova%201224%2F2b%2C%20500%2003%20Hradec%20Kr%C3%A1lov%C3%A9" target="_blank" rel="noopener">Otevřít v mapách</a>
@@ -204,7 +204,7 @@
         <a class="logo" href="index.html" style="margin-bottom:1rem">
           <img class="logo-img" src="assets/logo/krok-logo-inverzni.png" width="560" height="140" alt="">
         </a>
-        <p style="margin-top:1rem;max-width:32ch">Základní škola Krok<br>Šimkova 1224/2b (3. patro)<br>500 03 Hradec Králové</p>
+        <p style="margin-top:1rem;max-width:32ch">Základní škola Krok<br>Šimkova 1224/2b (2. patro)<br>500 03 Hradec Králové</p>
       </div>
       <div>
         <h3>Kontakt</h3>
@@ -233,16 +233,6 @@
 </footer>
 
 <script>
-  var t = document.querySelector(".nav-toggle");
-  var n = document.getElementById("nav");
-  t.addEventListener("click", function () {
-    var open = n.getAttribute("data-open") === "true";
-    n.setAttribute("data-open", String(!open));
-    t.setAttribute("aria-expanded", String(!open));
-  });
-</script>
-
-<script>
   // Prohlídka vchodu se načítá až na kliknutí. Dokud návštěvník neklikne,
   // neodejde ke Googlu žádný požadavek – proto web nepotřebuje lištu se
   // souhlasem. Samotné kliknutí je ten souhlas.
@@ -262,6 +252,20 @@
       box.textContent = "";
       box.classList.add("nacteno");
       box.appendChild(ramecek);
+    });
+  })();
+</script>
+<script>
+  // Rozbalení mobilního menu. Vlastní blok schválně: kdyby spadl jakýkoli
+  // jiný skript na stránce, menu musí fungovat dál.
+  (function () {
+    var t = document.querySelector(".nav-toggle");
+    var n = document.getElementById("nav");
+    if (!t || !n) return;
+    t.addEventListener("click", function () {
+      var open = n.getAttribute("data-open") === "true";
+      n.setAttribute("data-open", String(!open));
+      t.setAttribute("aria-expanded", String(!open));
     });
   })();
 </script>
