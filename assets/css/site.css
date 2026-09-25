@@ -1077,10 +1077,21 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
    proto tam o kousek stáhneme mezery a velikost písma v odkazech.
    V rozbaleném mobilním menu se tlačítko vrací na plnou velikost – tam má
    být nejnápadnějším prvkem, ne nejmenším. */
+/* Logo se nikdy nesmí smáčknout, aby uvolnilo místo navigaci – raději
+   ubereme v navigaci samotné. */
+.masthead .logo{flex:0 0 auto}
 @media (min-width:721px) and (max-width:980px){
   .nav{gap:1.05rem}
   .nav a:not(.btn){font-size:.92rem}
   .nav .btn-sm{padding:.5rem .85rem}
+}
+/* Nejtěsnější pásmo těsně nad mobilním menu: logo o stupeň menší,
+   mezery a tlačítko ještě o kousek užší. Bez toho by se lišta se šesti
+   položkami a tlačítkem přestala vejít. */
+@media (min-width:721px) and (max-width:860px){
+  .logo-img{height:2.1rem}
+  .nav{gap:.85rem}
+  .nav .btn-sm{padding:.5rem .7rem;font-size:.85rem}
 }
 @media (max-width:720px){
   .nav .btn-sm{padding:.85rem 1.4rem;font-size:1rem}
