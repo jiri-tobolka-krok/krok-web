@@ -176,14 +176,39 @@
 </footer>
 
 <script>
-  // Tlačítko odemkne až datum uvedené v data-otevira – a jen tehdy,
-  // když je v odkazu skutečná adresa. Bez JS zůstane informační věta.
+  // ODEMČENÍ PŘIHLAŠOVÁNÍ
+  // Čas je v atributu data-otevira na sekci #prihlaseni. Dokud nenastane,
+  // má sekce třídu "zavreno" a CSS schovává tlačítka i odkaz na náhradníky;
+  // místo nich je vidět věta, odkdy se přihlašuje.
+  // Bez JavaScriptu zůstane zavřeno – to je záměr, radši pozdě než dřív.
   (function () {
     var b = document.getElementById("prihlaseni");
     if (!b) return;
+
+    // Pojistka proti nedodělku: dokud je v odkazu placeholder, neotvírej.
     var odkaz = b.querySelector("a.btn");
     if (!odkaz || odkaz.getAttribute("href").indexOf("DOPLNIT") === 0) return;
-    if (new Date() >= new Date(b.getAttribute("data-otevira"))) b.classList.remove("zavreno");
+
+    var otevira = new Date(b.getAttribute("data-otevira"));
+
+    function zkus() {
+      if (new Date() < otevira) return false;
+      b.classList.remove("zavreno");
+      return true;
+    }
+
+    if (zkus()) return;
+
+    // Rodiče budou v 10:00 sedět na otevřené stránce. Bez tohohle by museli
+    // ručně obnovit, aby se jim tlačítka objevila.
+    var zbyva = otevira - new Date();
+    if (zbyva < 6 * 3600 * 1000) setTimeout(zkus, zbyva + 500);
+
+    // Mobil uspaný v kapse časovač přiškrtí. Zkusíme to znovu vždy, když se
+    // člověk na kartu vrátí.
+    document.addEventListener("visibilitychange", function () {
+      if (!document.hidden) zkus();
+    });
   })();
 </script>
 <script>
