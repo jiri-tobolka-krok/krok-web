@@ -145,6 +145,7 @@ ul{margin:0;padding:0;list-style:none}
   position:relative;text-decoration:none;font-weight:600;font-size:.97rem;
   color:var(--ink-2);padding-block:.5rem;
 }
+.nav a:not(.btn){white-space:nowrap}
 .nav a:not(.btn):hover{color:var(--ink)}
 /* aktivní stránka – pruh pod položkou; ::after ať nekoliduje s box-shadow */
 .nav a:not(.btn)[aria-current="page"]{color:var(--ink)}
@@ -967,7 +968,7 @@ ul{margin:0;padding:0;list-style:none}
   .dates-grid{grid-template-columns:1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
-@media (max-width:720px){
+@media (max-width:820px){
   .nav-toggle{
     display:inline-flex;align-items:center;gap:.5rem;background:none;border:1px solid var(--line);
     border-radius:99px;padding:.5rem .9rem;font:inherit;font-weight:700;font-size:.9rem;cursor:pointer;color:var(--ink);
@@ -1105,7 +1106,7 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 /* Logo se nikdy nesmí smáčknout, aby uvolnilo místo navigaci – raději
    ubereme v navigaci samotné. */
 .masthead .logo{flex:0 0 auto}
-@media (min-width:721px) and (max-width:980px){
+@media (min-width:821px) and (max-width:980px){
   .nav{gap:1.05rem}
   .nav a:not(.btn){font-size:.92rem}
   .nav .btn-sm{padding:.5rem .85rem}
@@ -1113,12 +1114,12 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 /* Nejtěsnější pásmo těsně nad mobilním menu: logo o stupeň menší,
    mezery a tlačítko ještě o kousek užší. Bez toho by se lišta se šesti
    položkami a tlačítkem přestala vejít. */
-@media (min-width:721px) and (max-width:860px){
+@media (min-width:821px) and (max-width:900px){
   .logo-img{height:2.1rem}
   .nav{gap:.85rem}
   .nav .btn-sm{padding:.5rem .7rem;font-size:.85rem}
 }
-@media (max-width:720px){
+@media (max-width:820px){
   .nav .btn-sm{padding:.85rem 1.4rem;font-size:1rem}
 }
 
@@ -1158,3 +1159,17 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
    poznat, že se dá stáhnout – vedle je i typ souboru a rozsah. */
 .doc .nazev a{color:var(--action);text-decoration:none}
 .doc .nazev a:hover{text-decoration:underline}
+
+/* --- hero na tabletu -----------------------------------------------------
+   Mezi 821 a 1000 px je hero široké, ale text v něm zabírá skoro tři čtvrtiny
+   šířky – víc než na desktopu, kde stejných 34 rem zabere jen polovinu.
+   Původní závoj slábl už od 62 %, takže konce řádků ležely skoro na
+   nezastřené fotce. Tady ho proto táhneme dál doprava. */
+@media (min-width:821px) and (max-width:1000px){
+  .hero::before{
+    background:linear-gradient(96deg,
+      rgba(12,16,24,.63) 0%, rgba(12,16,24,.61) 45%,
+      rgba(12,16,24,.54) 66%, rgba(12,16,24,.24) 82%,
+      rgba(12,16,24,.05) 92%, rgba(12,16,24,0) 100%);
+  }
+}
