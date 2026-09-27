@@ -152,7 +152,7 @@ ul{margin:0;padding:0;list-style:none}
    nemá kudy prosvítat – dřív se v ní ukazoval tmavý podklad jako pruh. */
 .hero::after{
   content:"";position:absolute;inset:0;z-index:-3;
-  background:url(../img/hero-prostor.jpg) 50% 50%/cover no-repeat;
+  background:url(../img/hero-trida.jpg) 50% 50%/cover no-repeat;
   filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast));
 }
 .hero-obr{
