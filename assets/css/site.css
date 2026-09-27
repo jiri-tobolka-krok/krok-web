@@ -1161,11 +1161,11 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 .doc .nazev a:hover{text-decoration:underline}
 
 /* --- hero na tabletu -----------------------------------------------------
-   Mezi 821 a 1000 px je hero široké, ale text v něm zabírá skoro tři čtvrtiny
+   Mezi 761 a 1000 px je hero široké, ale text v něm zabírá skoro tři čtvrtiny
    šířky – víc než na desktopu, kde stejných 34 rem zabere jen polovinu.
    Původní závoj slábl už od 62 %, takže konce řádků ležely skoro na
    nezastřené fotce. Tady ho proto táhneme dál doprava. */
-@media (min-width:821px) and (max-width:1000px){
+@media (min-width:761px) and (max-width:1000px){
   .hero::before{
     background:linear-gradient(96deg,
       rgba(12,16,24,.63) 0%, rgba(12,16,24,.61) 45%,
