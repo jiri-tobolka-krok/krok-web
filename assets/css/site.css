@@ -257,9 +257,11 @@ ul{margin:0;padding:0;list-style:none}
 .cards .card:nth-child(2) .tag{background:var(--krok-2)}
 .cards .card:nth-child(3) .tag{background:var(--krok-3)}
 .cards .card:nth-child(4) .tag{background:var(--krok-4)}
-/* pátá a šestá karta pokračují v rotaci od začátku, jako u předmětů */
+/* pátá a další karty pokračují v rotaci od začátku, jako u předmětů */
 .cards .card:nth-child(5) .tag{background:var(--krok-1)}
 .cards .card:nth-child(6) .tag{background:var(--krok-2)}
+.cards .card:nth-child(7) .tag{background:var(--krok-3)}
+.cards .card:nth-child(8) .tag{background:var(--krok-4)}
 .card p{color:var(--ink-2);font-size:.97rem}
 
 /* --- den ve škole -------------------------------------------------------- */
