@@ -369,10 +369,14 @@ ul{margin:0;padding:0;list-style:none}
 
 @media (max-width:760px){
   /* Na mobilu text pokrývá skoro celý snímek, takže ztmavení musí být plošné
-     a ne jen zleva. Výřez se posouvá k dětem na podlaze. */
+     a ne jen zleva.
+     Širokoúhlá fotka se do vysokého rámu nevejde – zbylo by z ní 36 % šířky
+     a z místnosti fragment. Proto má mobil vlastní výřez na výšku
+     (hero-trida-mobil.jpg), vybraný tak, aby na něm byly oba stoly s dětmi.
+     Vyměňuje se na dvou místech: v <picture> u obrázku a tady v podkladu. */
   .hero{min-height:clamp(33rem,108vw,42rem)}
-  .hero-obr{object-position:58% 50%}
-  .hero::after{background-position:58% 50%}
+  .hero-obr{object-position:50% 50%}
+  .hero::after{background-image:url(../img/hero-trida-mobil.jpg);background-position:50% 50%}
   .hero::before{background:linear-gradient(180deg,rgba(12,16,24,.60) 0%,rgba(12,16,24,.59) 50%,rgba(12,16,24,.63) 100%)}
   .hero-copy{max-width:none}
   .team-grid{grid-template-columns:repeat(2,1fr);gap:2rem 1.25rem}

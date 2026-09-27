@@ -113,9 +113,12 @@
 <main>
 
   <section class="hero">
-    <img class="hero-obr" src="assets/img/hero-trida.jpg" width="2000" height="1000"
-         fetchpriority="high" decoding="async"
-         alt="Třída při práci – děti píšou u kulatých stolů i vsedě na koberci, pedagožka píše na tabuli">
+    <picture>
+      <source media="(max-width:760px)" srcset="assets/img/hero-trida-mobil.jpg" width="800" height="1128">
+      <img class="hero-obr" src="assets/img/hero-trida.jpg" width="2000" height="1000"
+           fetchpriority="high" decoding="async"
+           alt="Třída při práci – děti píšou u kulatých stolů i vsedě na koberci, pedagožka píše na tabuli">
+    </picture>
     <div class="wrap">
       <div class="hero-copy">
         <p class="eyebrow">Základní škola · Hradec Králové</p>
