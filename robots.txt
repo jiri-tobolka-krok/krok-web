@@ -1,0 +1,9 @@
+# Web je veřejný, indexovat se smí všechno.
+# Přesměrovací stránky ze starého wixového webu mají vlastní
+# <meta name="robots" content="noindex, follow">, takže se do výsledků
+# vyhledávání nedostanou, ale odkaz na novou adresu se předá dál.
+
+User-agent: *
+Allow: /
+
+Sitemap: https://www.skolakrok.cz/sitemap.xml

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="utf-8">
+<!-- PŘESMĚROVÁNÍ ZE STARÉHO WEBU
+     Stará adresa: /rezervacni-system
+     Stránka na Wixu: „Rezervační systém“
+     Nová adresa: /zapis/
+     Důvod: rezervace se vyrábí znovu, zatím patří k Zápisu
+
+     Soubor existuje jen kvůli lidem a vyhledávačům, kteří mají uloženou
+     starou adresu. GitHub Pages neumí serverové 301, proto meta refresh
+     plus kanonický odkaz – vyhledávače to berou jako přesměrování.
+     Až přestanou staré adresy chodit (řekněme za dva roky), lze smazat. -->
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="refresh" content="0; url=/zapis/">
+<link rel="canonical" href="https://www.skolakrok.cz/zapis/">
+<title>Stránka se přesunula | ZŠ Krok</title>
+<style>
+  body{margin:0;min-height:100vh;display:grid;place-items:center;padding:2rem;
+       font:16px/1.6 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+       color:#15161B;background:#F2F5F9;text-align:center}
+  a{color:#0064dc;font-weight:700}
+</style>
+</head>
+<body>
+  <p>Tahle stránka se přesunula.<br>
+     <a href="/zapis/">Pokračovat na novou adresu &rarr;</a></p>
+</body>
+</html>

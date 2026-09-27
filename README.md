@@ -2,7 +2,7 @@
 
 Statický web Základní školy Krok (Hradec Králové), nasazovaný na GitHub Pages.
 
-**Stav:** první skica homepage. Podstránky jsou zatím prázdné kostry.
+**Stav:** web běží na https://www.skolakrok.cz (spuštěno 27. 9. 2026).
 
 ## Jak je to postavené
 
@@ -11,28 +11,51 @@ Push do `main` = web je za pár desítek sekund živý. Za tři roky to půjde
 otevřít a upravit úplně stejně jako dnes.
 
 ```
-index.html            homepage
-o-skole.html          ┐
-jak-ucime.html        │
-den-ve-skole.html     │
-zapis.html            │ podstránky podle mapy webu
-skolne.html           │
-tym.html              │
-aktuality.html        │
-kariera.html          │
-kontakt.html          │
-dokumenty.html        ┘
+index.html            homepage (jediná stránka v kořeni)
 404.html              chybová stránka (GitHub Pages ji použije sám)
+CNAME                 vlastní doména – vytvořil GitHub, neupravovat ručně
+robots.txt            indexaci povolujeme celou, odkazuje na sitemapu
+sitemap.xml           ruční seznam stránek; při přidání stránky doplnit řádek
+
+o-skole/index.html    ┐
+jak-ucime/index.html  │
+den-ve-skole/…        │ podstránky – každá ve vlastní složce,
+zapis/…               │ servírují se na adrese bez .html
+skolne/…              │ (zapis/index.html → skolakrok.cz/zapis)
+tym/…                 │
+aktuality/…           │
+kariera/…             │
+kontakt/…             │
+dokumenty/…           │
+predskolacci/…        │
+zasady-ochrany-udaju/ ┘
+en/index.html         anglická jednostránka
+
+nas-tym/, kontakty/, pedagog-1-stupen/ a dalších 22 složek
+                      přesměrování ze starých wixových adres; každé nese
+                      v komentáři, co to byla za stránku a proč vede tam,
+                      kam vede. Obsahují jen meta refresh + canonical.
 
 assets/css/site.css   veškeré styly webu
+assets/fonts/         Inter, hostujeme si ho sami (viz komentář v site.css)
 assets/img/           fotky
-assets/logo/          podklady od designera (zatím prázdné — viz README uvnitř)
+assets/logo/          podklady od designera
+assets/dokumenty/     PDF ke stažení
 
-tools/new-page.sh     vygeneruje novou podstránku se sdílenou hlavičkou a patičkou
+tools/new-page.sh     vygeneruje novou podstránku ve vlastní složce
+tools/nahled-server.py místní náhled: python3 tools/nahled-server.py
 tools/build-preview.sh sestaví jednosouborový náhled
 
-.nojekyll             vypíná Jekyll na GitHub Pages (servíruje soubory tak, jak jsou)
+.nojekyll             vypíná Jekyll na GitHub Pages
 ```
+
+## Odkazy jsou relativní, ne od kořene
+
+Z podstránky se odkazuje `../tym/` a `../assets/…`, z homepage `tym/`.
+Díky tomu web funguje na vlastní doméně i na `github.io/krok-web/` bez
+jediné změny. **Nepoužívej cesty začínající `/`** – fungovaly by jen na
+ostré doméně a náhled by se rozbil. Jediná výjimka jsou přesměrovací
+stránky, ty míří na `/tym/` schválně: existují jen kvůli staré doméně.
 
 ## Pozor: hlavička a patička jsou v každém souboru zvlášť
 
@@ -48,71 +71,33 @@ projet přes všechny `*.html` najednou (`sed -i '' ...`), ne ručně po jednom.
 
 ## Fonty
 
-Zatím se načítají z Google Fonts. **Před spuštěním self-hostovat** do `assets/fonts/` —
-načítání z Google Fonts posílá IP návštěvníků do USA a je to u českých školních webů
-zbytečné GDPR riziko.
+Inter si hostujeme sami v `assets/fonts/`. Je to variabilní font, takže jeden
+soubor na subset pokrývá všechny váhy. Jiné písmo web nepoužívá – tak ho dodal
+grafik. Postup aktualizace je v komentáři nad `@font-face` v `site.css`.
 
-## ⚠️ Web je zatím schovaný před vyhledávači
+## Co zbývá
 
-Každá stránka má v hlavičce:
+**Obsah**
+- Fotografie: Zuzana Polívková, Melissa Farka (i medailonky), Magda Fejglová,
+  Daniela Kykalová. Do té doby mají monogram.
+- Rozhodnout o vnitřním řádu družiny a školní jídelny ze starého webu.
+- Citace rodiče a tři aktuality na homepage – připravené, ale schované
+  v HTML komentáři. Zapnou se odebráním komentáře.
+- Datum účinnosti v zásadách ochrany údajů.
+- `jak-ucime`: věta o struktuře předmětů uvádí dvakrát rok 2027, zkontrolovat.
+- Fotka vchodu do budovy na Kontaktu (vedle prohlídky ze Street View).
 
-```html
-<meta name="robots" content="noindex, nofollow">
-```
-
-Dokud tam ten tag je, Google ani Seznam web nezaindexují. **Před spuštěním ostré
-verze ho musíš odstranit ze všech souborů naráz:**
-
-```bash
-perl -0pi -e 's|<!-- POZOR.*?-->\n<meta name="robots"[^>]*>\n||s' *.html tools/new-page.sh
-```
-
-`robots.txt` tu záměrně není — u GitHub Pages *project* stránek (`.github.io/krok-web/`)
-ho roboti stejně nečtou, protože platí jen `robots.txt` z kořene domény. Jakmile web
-poběží na vlastní doméně `skolakrok.cz`, dává smysl `robots.txt` doplnit.
-
-## Co udělat před spuštěním ostré verze
-
-Seznam věcí, které se záměrně odkládají na konec. Pořadí odpovídá tomu,
-v jakém se to má dělat.
-
-**1. Čisté URL bez `.html`**
-GitHub Pages nemá Apache, takže mod_rewrite ani `.htaccess` nefungují.
-Řeší se adresářovou strukturou: `zapis.html` → `zapis/index.html`, které
-server servíruje na `/zapis`. Znamená to přepsat všechny vnitřní odkazy
-a přepnout cesty k assetům na kořenové (`/assets/…`) — ty fungují z libovolné
-hloubky, ale až ve chvíli, kdy web běží na vlastní doméně, ne na
-`github.io/krok-web/`. Proto až po napojení domény.
-
-**2. Rozhodnout osud starých wixových adres**
-GitHub Pages neumí 301 přesměrování. Staré adresy (`/nas-tym`,
-`/zapis-prestupy`, `/kontakty`) po přechodu ztratí svou pozici ve
-vyhledávačích a nedá se to přesměrovat. Buď to přijmeme (homepage, která
-drží většinu hodnoty, si adresu zachová), nebo nové stránky pojmenujeme
-podle starých. **Rozhodnout dřív, než přibudou další stránky.**
-
-**3. Odstranit `noindex`** ze všech souborů — viz sekce výše.
-
-**4. Self-hostovat fonty** do `assets/fonts/` místo načítání z Google Fonts.
-Pak upravit `zasady-ochrany-udaju.html` — je tam odstavec, který přiznává,
-že se IP návštěvníků odesílá Googlu. Až to přestane platit, musí zmizet.
-
-**5. Doplnit** `robots.txt`, `sitemap.xml`, kanonické odkazy, Open Graph
-obrázky a strukturovaná data (schema.org `School`).
-
-**6. Zapéct černobílý převod fotek** do souborů místo CSS filtru:
-`sips --matchTo "/System/Library/ColorSync/Profiles/Generic Gray Gamma 2.2 Profile.icc"`
-
-**7. Vyplnit všechny žluté placeholdery** — v kódu se hledají jako
-`class="todo"`. Žádný nesmí zůstat.
-
-**8. Nechat zásady ochrany údajů projít někým znalým.** Popisují reálný
-stav webu, ale nejsou to právně prověřený dokument. Stránka se navíc
-záměrně netýká zpracování údajů o dětech a rodičích — to je samostatná
-informační povinnost školy.
+**Technika**
+- Kanonické odkazy a Open Graph obrázky pro sdílení na sítích.
+- Strukturovaná data schema.org `School` – adresa, telefon, otevírací doba.
+- Doménu přidat do Google Search Console a nahrát sitemapu.
+- Zápis: tlačítko rezervace je připravené, ale skryté. 30. 11. 2026 v 10:00
+  stačí doplnit adresu do odkazu a odebrat třídu `zavreno`.
+- Nechat zásady ochrany údajů projít někým znalým.
+- Doména vyprší **13. 11. 2026**, registrátor Active24.
 
 ## Staré stránky, které zanikají
 
 Z původního webu se nepřenášejí: *Inspirují nás*, *Výchovný poradce*,
-*Skautská klubovna K. Šimka* a *Rezervační systém*. Rezervační systém
-pro zápis se vyrobí znovu, až bude potřeba.
+*Skautská klubovna K. Šimka* a *Rezervační systém*. Všechny mají
+přesměrování na nejbližší smysluplnou stránku.
