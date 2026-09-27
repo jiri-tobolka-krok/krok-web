@@ -1,9 +1,9 @@
 /* --- písma ----------------------------------------------------------------
    Hostujeme si je sami, ne z Google Fonts – načítání od Googlu posílá IP
    adresu každého návštěvníka do USA a u školního webu to není co vysvětlovat.
-   Inter je variabilní font: jeden soubor pokrývá všechny váhy 400–800.
-   Poppins používáme jen v řezu 800 na nadpisy, proto statický.
-   Dva subsety na rodinu: latin a latin-ext (ě š č ř ž ů žijí v latin-ext).
+   Inter je jediné písmo webu – tak ho dodal grafik. Je variabilní, takže
+   jeden soubor pokrývá všechny váhy 400–800.
+   Dva subsety: latin a latin-ext (ě š č ř ž ů žijí v latin-ext).
    Aktualizace: stáhnout nové .woff2 z Google Fonts a přepsat soubory pod
    stejnými názvy – v CSS se nemění nic. */
 @font-face{
@@ -14,16 +14,6 @@
 @font-face{
   font-family:"Inter";font-style:normal;font-weight:100 900;font-display:swap;
   src:url(../fonts/inter-latin.woff2) format("woff2");
-  unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face{
-  font-family:"Poppins";font-style:normal;font-weight:800;font-display:swap;
-  src:url(../fonts/poppins-latin-ext.woff2) format("woff2");
-  unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face{
-  font-family:"Poppins";font-style:normal;font-weight:800;font-display:swap;
-  src:url(../fonts/poppins-latin.woff2) format("woff2");
   unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -239,7 +229,7 @@ ul{margin:0;padding:0;list-style:none}
 .facts ul{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(1.25rem,3vw,2.5rem)}
 .facts li{display:flex;flex-direction:column;gap:.3rem}
 .facts .num{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;
+  font-family:"Inter",sans-serif;font-weight:800;
   font-size:clamp(2rem,4.4vw,3rem);line-height:1;letter-spacing:-.03em;
   font-variant-numeric:tabular-nums;
 }
@@ -294,7 +284,7 @@ ul{margin:0;padding:0;list-style:none}
   background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.22);
   border-radius:var(--radius);padding:1.75rem;display:flex;flex-direction:column;gap:.6rem;align-items:flex-start;
 }
-.date-card .when{font-family:"Poppins",sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;line-height:1.15}
+.date-card .when{font-family:"Inter",sans-serif;font-weight:800;font-size:1.6rem;letter-spacing:-.02em;line-height:1.15}
 .date-card p{color:#D3E0F5;font-size:.97rem}
 .date-card .btn{margin-top:.5rem}
 
@@ -353,7 +343,7 @@ ul{margin:0;padding:0;list-style:none}
   display:grid;place-items:center;border-radius:50%;background:var(--sand);
 }
 .person-photo.is-empty span{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:2.1rem;
+  font-family:"Inter",sans-serif;font-weight:800;font-size:2.1rem;
   color:var(--ring);letter-spacing:-.02em;
 }
 .person h3{font-size:1.05rem;letter-spacing:-.015em}
@@ -401,7 +391,7 @@ ul{margin:0;padding:0;list-style:none}
 .steps .step:nth-child(4n+3){--ring:var(--krok-3)}
 .steps .step:nth-child(4n+0){--ring:var(--krok-4)}
 .step-num{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.35rem;line-height:1;
+  font-family:"Inter",sans-serif;font-weight:800;font-size:1.35rem;line-height:1;
   color:var(--ring);width:2.9rem;height:2.9rem;border:2px solid var(--ring);border-radius:50%;
   display:grid;place-items:center;flex:none;
 }
@@ -428,7 +418,7 @@ ul{margin:0;padding:0;list-style:none}
   display:flex;flex-direction:column;gap:.5rem;
 }
 .price-tag .amount{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;color:var(--action);
+  font-family:"Inter",sans-serif;font-weight:800;color:var(--action);
   font-size:clamp(1.9rem,4vw,2.5rem);line-height:1;letter-spacing:-.03em;
   font-variant-numeric:tabular-nums;
 }
@@ -480,7 +470,7 @@ ul{margin:0;padding:0;list-style:none}
 .plans .plan:nth-child(2) .tag{background:var(--krok-2)}
 .plans .plan:nth-child(3) .tag{background:var(--krok-3)}
 .plan .amount{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;
+  font-family:"Inter",sans-serif;font-weight:800;
   font-size:1.75rem;line-height:1.1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;
 }
 .plan .when{font-size:.95rem;color:var(--ink-2);line-height:1.55}
@@ -579,7 +569,7 @@ ul{margin:0;padding:0;list-style:none}
 .section-dark .eyebrow{color:#A9C6F2}
 .motto-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(2rem,5vw,4rem);align-items:center}
 .formula{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;letter-spacing:-.03em;
+  font-family:"Inter",sans-serif;font-weight:800;letter-spacing:-.03em;
   font-size:clamp(2.2rem,6vw,3.6rem);line-height:1.05;font-variant-numeric:tabular-nums;
 }
 .formula sup{font-size:.5em;vertical-align:super}
@@ -614,7 +604,7 @@ ul{margin:0;padding:0;list-style:none}
 }
 .scale li:last-child{border-bottom:1px solid var(--line)}
 .scale .letter{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.5rem;
+  font-family:"Inter",sans-serif;font-weight:800;font-size:1.5rem;
   color:var(--action);line-height:1;text-align:center;
 }
 .scale .what{font-weight:700}
@@ -643,7 +633,7 @@ ul{margin:0;padding:0;list-style:none}
 .weekdays .weekday:nth-child(2) .day{color:var(--krok-2)}
 .weekdays .weekday:nth-child(3) .day{color:var(--krok-3)}
 .weekday .day{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.15rem;
+  font-family:"Inter",sans-serif;font-weight:800;font-size:1.15rem;
   letter-spacing:-.02em;line-height:1.2;
 }
 .weekday p{color:var(--ink-2);font-size:.95rem}
@@ -664,7 +654,7 @@ ul{margin:0;padding:0;list-style:none}
 .docs .doc:nth-child(4n+3) .typ{background:var(--krok-3-dark)}
 .docs .doc:nth-child(4n+0) .typ{background:var(--krok-4-dark)}
 .doc .typ{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:.68rem;
+  font-family:"Inter",sans-serif;font-weight:800;font-size:.68rem;
   letter-spacing:.06em;color:#fff;padding:.35rem .5rem;border-radius:6px;line-height:1;
 }
 .doc .nazev{font-weight:700}
@@ -691,14 +681,14 @@ ul{margin:0;padding:0;list-style:none}
   gap:clamp(2rem,5vw,4rem);align-items:center;
 }
 .pocet{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;color:var(--action);
+  font-family:"Inter",sans-serif;font-weight:800;color:var(--action);
   font-size:clamp(3.5rem,10vw,6.5rem);line-height:.95;letter-spacing:-.04em;
   font-variant-numeric:tabular-nums;
   /* číslo se během animace mění – pevná šířka brání poskakování okolí */
   display:block;
 }
 .vzorec{
-  margin-top:.9rem;font-family:"Poppins","Inter",sans-serif;font-weight:800;
+  margin-top:.9rem;font-family:"Inter",sans-serif;font-weight:800;
   font-size:1.15rem;letter-spacing:-.02em;color:var(--ink);
 }
 .vzorec sup{font-size:.55em;vertical-align:super}
@@ -729,7 +719,7 @@ ul{margin:0;padding:0;list-style:none}
   background:var(--paper);border:2px solid var(--line);
 }
 .rust .rok{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;
+  font-family:"Inter",sans-serif;font-weight:800;
   font-size:clamp(1.5rem,3vw,2.1rem);line-height:1;letter-spacing:-.03em;
   color:var(--ink-3);font-variant-numeric:tabular-nums;
 }
@@ -835,7 +825,7 @@ ul{margin:0;padding:0;list-style:none}
 .cesta-cisla{grid-template-columns:repeat(3,1fr)}
 .cesta-cisla.cesta-4{grid-template-columns:repeat(4,1fr)}
 .cesta-cisla .cislo{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;
+  font-family:"Inter",sans-serif;font-weight:800;
   font-size:clamp(1.6rem,3.4vw,2.2rem);line-height:1;letter-spacing:-.03em;
   color:var(--action);font-variant-numeric:tabular-nums;
 }
@@ -937,7 +927,7 @@ ul{margin:0;padding:0;list-style:none}
   padding:clamp(1.75rem,4vw,2.25rem);display:flex;flex-direction:column;gap:.7rem;
 }
 .oblast .cislo{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:1.6rem;
+  font-family:"Inter",sans-serif;font-weight:800;font-size:1.6rem;
   line-height:1;color:var(--action);font-variant-numeric:tabular-nums;
 }
 .oblast p{color:var(--ink-2)}
@@ -1029,7 +1019,7 @@ ul{margin:0;padding:0;list-style:none}
 .otazky > div:nth-child(4n+3){--akcent:var(--krok-3)}
 .otazky > div:nth-child(4n+0){--akcent:var(--krok-4)}
 .otazky .cislo{
-  font-family:"Poppins","Inter",sans-serif;font-weight:800;font-size:.95rem;
+  font-family:"Inter",sans-serif;font-weight:800;font-size:.95rem;
   letter-spacing:.12em;color:var(--akcent);font-variant-numeric:tabular-nums;
 }
 .otazky h3{margin:0;font-size:clamp(1.3rem,2.3vw,1.7rem);line-height:1.25;max-width:24ch}
