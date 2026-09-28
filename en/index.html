@@ -20,6 +20,8 @@
 <link rel="icon" href="../assets/logo/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="../assets/logo/favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="../assets/logo/apple-touch-icon.png">
+<link rel="preload" as="image" href="../assets/img/hero-trida.jpg" media="(min-width:761px)" fetchpriority="high">
+<link rel="preload" as="image" href="../assets/img/hero-trida-mobil.jpg" media="(max-width:760px)" fetchpriority="high">
 <link rel="stylesheet" href="../assets/css/site.css">
 </head>
 <body class="en">
@@ -58,12 +60,7 @@
 <main id="main">
 
   <section class="hero hero-en">
-    <picture>
-      <source media="(max-width:760px)" srcset="../assets/img/hero-trida-mobil.jpg" width="800" height="1128">
-      <img class="hero-obr" src="../assets/img/hero-trida.jpg" width="2000" height="1000"
-           fetchpriority="high" decoding="async"
-           alt="Children working at round tables and on a long roll of paper on the floor while a teacher writes on a whiteboard wall">
-    </picture>
+    <div class="hero-obr" role="img" aria-label="Children working at round tables and on a long roll of paper on the floor while a teacher writes on a whiteboard wall"></div>
     <div class="wrap">
       <div class="hero-copy">
         <p class="eyebrow">KROK School · Hradec Králové · Czech Republic</p>
