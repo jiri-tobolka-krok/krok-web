@@ -224,7 +224,6 @@ ul{margin:0;padding:0;list-style:none}
 /* Fotky na homepage jsou o něco tišší, aby nesoupeřily s barevným logem.
    Doladění = změna dvou čísel níž, odstranění = smazání tohoto pravidla. */
 :root{--foto-sytost:.92;--foto-kontrast:1.01}
-.hero-obr,
 
 /* --- pás s čísly --------------------------------------------------------- */
 .facts{border-block:1px solid var(--line);padding-block:clamp(2rem,4vw,3rem)}
