@@ -1173,5 +1173,5 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
    šířku sloupce, nikde se neořezávají a drží původní poměr stran.
    Vlasová linka je tam proto, že krajský plakát má bílé okraje a na bílé
    stránce by jinak neměl žádný tvar – není to rámeček pro ozdobu. */
-.plakat{max-width:46rem;margin:0}
+.plakat{max-width:36rem;margin:0}
 .plakat img{display:block;width:100%;height:auto;border:1px solid var(--line)}
