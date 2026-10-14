@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>První krok do školy | ZŠ Krok Hradec Králové</title>
-<meta name="description" content="Hravé odpoledne pro budoucí prvňáčky. Děti poznají prostředí ZŠ Krok i některé z našich pedagogů ještě před lednovým zápisem. Dva listopadové termíny.">
+<meta name="description" content="Hravé odpoledne pro budoucí prvňáčky. Děti poznají prostředí ZŠ Krok i některé z našich pedagogů ještě před lednovým zápisem. Tři listopadové termíny.">
 <link rel="canonical" href="https://www.skolakrok.cz/predskolacci/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="cs_CZ">
 <meta property="og:site_name" content="Základní škola Krok">
 <meta property="og:url" content="https://www.skolakrok.cz/predskolacci/">
 <meta property="og:title" content="První krok do školy">
-<meta property="og:description" content="Hravé odpoledne pro budoucí prvňáčky. Děti poznají prostředí ZŠ Krok i některé z našich pedagogů ještě před lednovým zápisem. Dva listopadové termíny.">
+<meta property="og:description" content="Hravé odpoledne pro budoucí prvňáčky. Děti poznají prostředí ZŠ Krok i některé z našich pedagogů ještě před lednovým zápisem. Tři listopadové termíny.">
 <meta property="og:image" content="https://www.skolakrok.cz/assets/img/nahled-sdileni.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -78,33 +78,37 @@
   </section>
 
   <!-- PŘIHLAŠOVÁNÍ
-       Zamčené: místo tlačítek se ukazuje věta o spuštění. Skript v patičce
-       třídu "zavreno" sám odebere v čase z data-otevira, tedy 29. 9. v 10:00.
-       Ruční odemčení (třeba pro test prokliku): odeber třídu "zavreno" níž. -->
-  <section class="section section-sand zavreno" id="prihlaseni" data-otevira="2026-09-29T10:00:00+02:00">
+       První dva termíny jsou plné, otevřený je třetí – 18. 11. Až se naplní
+       i on, stačí u něj vyměnit odstavec s tlačítkem za
+       <p class="obsazeno">Obsazeno</p>, jako mají oba předchozí. -->
+  <section class="section section-sand" id="prihlaseni">
     <div class="wrap">
       <div class="section-head">
         <p class="eyebrow">Termíny</p>
-        <h2>Vyberte si jeden ze dvou termínů</h2>
+        <h2>Otevíráme třetí termín</h2>
       </div>
+
+      <p class="prose" style="margin-bottom:clamp(2rem,4vw,2.75rem)">První dva termíny se velmi rychle naplnily, a proto jsme se rozhodli přidat ještě jedno společné odpoledne pro předškoláčky – ve středu 18.&nbsp;11. od 15:30 do 17:00.</p>
+
       <div class="zasady">
         <div>
           <h3>úterý 3. listopadu 2026</h3>
           <p>15:30–17:00</p>
-          <p><a class="btn btn-primary" href="https://forms.gle/93WheR4KxTPTxdAy5" target="_blank" rel="noopener">Přihlásit na 3.&nbsp;11. &rarr;</a></p>
+          <p class="obsazeno">Obsazeno</p>
         </div>
         <div>
           <h3>úterý 10. listopadu 2026</h3>
           <p>15:30–17:00</p>
-          <p><a class="btn btn-primary" href="https://forms.gle/7HPixUHMpPAW1UKB7" target="_blank" rel="noopener">Přihlásit na 10.&nbsp;11. &rarr;</a></p>
+          <p class="obsazeno">Obsazeno</p>
+        </div>
+        <div>
+          <h3>středa 18. listopadu 2026</h3>
+          <p>15:30–17:00</p>
+          <p><a class="btn btn-primary" href="https://forms.gle/qVrzXf17tUPBbKzQ7" target="_blank" rel="noopener">Přihlásit na 18.&nbsp;11. &rarr;</a></p>
         </div>
       </div>
 
-      <p class="cekame">Přihlašování spouštíme 29. 9. v 10:00.</p>
-
-      <p class="prose" style="margin-top:clamp(2rem,4vw,2.75rem)">Kapacita každého termínu je maximálně 16 dětí. Zvolte si termín, který vám vyhovuje.</p>
-
-      <p class="nahradnici">Je vybraný termín už plný? <a href="https://forms.gle/qVrzXf17tUPBbKzQ7" target="_blank" rel="noopener">Zapište se mezi náhradníky &rarr;</a> Ozveme se vám, jakmile se místo uvolní.</p>
+      <p class="prose" style="margin-top:clamp(2rem,4vw,2.75rem)">Kapacita každého termínu je maximálně 16 dětí.</p>
 
       <dl class="paydata" style="max-width:40rem;margin-top:clamp(1.75rem,3.5vw,2.5rem)">
         <div>
@@ -165,6 +169,7 @@
           <li><a href="../skolne/">Školné</a></li>
           <li><a href="../kariera/">Kariéra</a></li>
           <li><a href="../dokumenty/">Dokumenty</a></li>
+          <li><a href="../projekty-a-podpora/">Projekty a podpora</a></li>
           <li><a href="../en/">English / International</a></li>
         </ul>
       </div>
@@ -175,42 +180,6 @@
   </div>
 </footer>
 
-<script>
-  // ODEMČENÍ PŘIHLAŠOVÁNÍ
-  // Čas je v atributu data-otevira na sekci #prihlaseni. Dokud nenastane,
-  // má sekce třídu "zavreno" a CSS schovává tlačítka i odkaz na náhradníky;
-  // místo nich je vidět věta, odkdy se přihlašuje.
-  // Bez JavaScriptu zůstane zavřeno – to je záměr, radši pozdě než dřív.
-  (function () {
-    var b = document.getElementById("prihlaseni");
-    if (!b) return;
-
-    // Pojistka proti nedodělku: dokud je v odkazu placeholder, neotvírej.
-    var odkaz = b.querySelector("a.btn");
-    if (!odkaz || odkaz.getAttribute("href").indexOf("DOPLNIT") === 0) return;
-
-    var otevira = new Date(b.getAttribute("data-otevira"));
-
-    function zkus() {
-      if (new Date() < otevira) return false;
-      b.classList.remove("zavreno");
-      return true;
-    }
-
-    if (zkus()) return;
-
-    // Rodiče budou v 10:00 sedět na otevřené stránce. Bez tohohle by museli
-    // ručně obnovit, aby se jim tlačítka objevila.
-    var zbyva = otevira - new Date();
-    if (zbyva < 6 * 3600 * 1000) setTimeout(zkus, zbyva + 500);
-
-    // Mobil uspaný v kapse časovač přiškrtí. Zkusíme to znovu vždy, když se
-    // člověk na kartu vrátí.
-    document.addEventListener("visibilitychange", function () {
-      if (!document.hidden) zkus();
-    });
-  })();
-</script>
 <script>
   // Rozbalení mobilního menu. Vlastní blok schválně: kdyby spadl jakýkoli
   // jiný skript na stránce, menu musí fungovat dál.

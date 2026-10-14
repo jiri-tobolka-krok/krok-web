@@ -1084,17 +1084,15 @@ ul{margin:0;padding:0;list-style:none}
 body.en .section{padding-block:clamp(2.25rem,5.4vw,4.25rem)}
 body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 
-/* Přihlašování na Předškoláčcích. Bez třídy zavreno jsou vidět tlačítka,
-   s ní věta o spuštění – přepíná se jedním slovem v HTML. */
+/* Přihlašování na Předškoláčcích: pod každým termínem je buď tlačítko,
+   nebo popisek, že je plno. */
 #prihlaseni .zasady p:last-child{margin-top:.5rem}
-#prihlaseni.zavreno .btn{display:none}
-#prihlaseni:not(.zavreno) .cekame{display:none}
-#prihlaseni .cekame{margin-top:clamp(2rem,4vw,2.75rem)}
-.nahradnici{
-  margin-top:clamp(1.5rem,3vw,2rem);border-left:3px solid var(--krok-2);
-  padding:.15rem 0 .15rem 1.15rem;max-width:56ch;color:var(--ink-2);
-}
-.nahradnici a{color:var(--action);font-weight:700;text-decoration:none}
+/* Plný termín. Žádná nová barva ani rámeček – jen tiché konstatování. */
+.obsazeno{font-weight:700;color:var(--ink-3)}
+/* Termíny jsou tři. Mřížka se řídí šířkou sloupce, takže se z trojice sama
+   stane dvojice a na mobilu jeden sloupec pod sebou; proto tady nestačilo
+   nechat .zasady na pevných dvou sloupcích. */
+#prihlaseni .zasady{grid-template-columns:repeat(auto-fit,minmax(min(100%,14rem),1fr))}
 
 /* --- sezónní CTA v hlavní navigaci ---------------------------------------
    V liště je tlačítko o stupeň menší (btn-sm), aby se vešlo do 74px pruhu.
@@ -1133,10 +1131,6 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
    Mřížka s lidmi výš má tři karty a vypadá stejně jako dřív. */
 .contact-grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr))}
 
-/* Dokud přihlašování neběží, nemá smysl nabízet ani místo náhradníka –
-   žádný termín se ještě nemohl naplnit. Odemyká se spolu s tlačítky. */
-#prihlaseni.zavreno .nahradnici{display:none}
-
 /* Dvě tlačítka pod adresou. Na úzké obrazovce se zalomí pod sebe a nezůstane
    mezi nimi slepená mezera jako u dvou odkazů v jednom odstavci. */
 .kde-akce{display:flex;flex-wrap:wrap;gap:.75rem;margin-top:1.5rem}
@@ -1172,3 +1166,12 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
       rgba(12,16,24,.05) 92%, rgba(12,16,24,0) 100%);
   }
 }
+
+/* --- plakáty veřejné podpory ---------------------------------------------
+   Originální soubory od poskytovatelů podpory, jen zmenšené. Na desktopu je
+   držíme pod 46rem, aby nepřebily zbytek stránky; na mobilu se roztáhnou na
+   šířku sloupce, nikde se neořezávají a drží původní poměr stran.
+   Vlasová linka je tam proto, že krajský plakát má bílé okraje a na bílé
+   stránce by jinak neměl žádný tvar – není to rámeček pro ozdobu. */
+.plakat{max-width:46rem;margin:0}
+.plakat img{display:block;width:100%;height:auto;border:1px solid var(--line)}
