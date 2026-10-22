@@ -1175,3 +1175,12 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
    stránce by jinak neměl žádný tvar – není to rámeček pro ozdobu. */
 .plakat{max-width:36rem;margin:0}
 .plakat img{display:block;width:100%;height:auto;border:1px solid var(--line)}
+
+/* --- zkratka s vysvětlením v roli ----------------------------------------
+   Po najetí myší ukáže prohlížeč bublinu s textem z atributu title. Nativní
+   bublina schválně, ne vlastní: karty v mřížce týmu jsou úzké a vlastní
+   bublina by u krajního sloupce přetekla ven ze stránky. Odkaz tu nechceme,
+   návštěvník nemá kam odejít – vysvětlení musí stačit samo o sobě.
+   Pozor: na dotykových displejích se title neukáže, je to doplněk navíc,
+   ne nositel informace, bez které by role nedávala smysl. */
+.role .zkratka{text-decoration:underline dotted;text-underline-offset:.2em;cursor:help}
