@@ -1,11 +1,10 @@
 # Dokumenty ke stažení
 
-**Krok guide sem nepatří** – na web se nedává.
-
 PDF soubory, na které odkazuje `dokumenty.html`:
 
 - `skolni-rad.pdf`
 - `klasifikacni-rad.pdf`
+- `krok-guide.pdf`
 - `vyrocni-zpravy/vyrocni-zprava-RRRR-RRRR.pdf` — jedna zpráva na školní rok;
   originály zakládáme do sbírky listin, sem patří stejný soubor
 - `zapisy-skolska-rada/skolska-rada-RRRR-MM-DD.pdf` — jeden soubor na schůzi,
