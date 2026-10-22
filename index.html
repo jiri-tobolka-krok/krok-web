@@ -228,8 +228,8 @@
       <div class="dates-grid">
         <article class="date-card">
           <p class="eyebrow" style="color:#A9C6F2">První krok do školy</p>
-          <p class="when">3. 11. / 10. 11. 2026<br>15:30–17:00</p>
-          <p>Hravé odpoledne pro budoucí prvňáčky. Každá rodina si při přihlášení zvolí jeden z termínů.</p>
+          <p class="when">3., 10. a 18. 11. 2026<br>15:30–17:00</p>
+          <p>Hravé odpoledne pro budoucí prvňáčky. První dva termíny jsou obsazené, volná místa zbývají na 18. 11.</p>
           <a class="btn btn-light" href="predskolacci/">Více informací &rarr;</a>
         </article>
         <article class="date-card">
@@ -248,23 +248,41 @@
     </div>
   </section>
 
-  <!-- ============================================================
-       CITACE RODIČE — skryto, dokud nemáme skutečnou autentickou
-       referenci. Nikdy sem nevkládej vymyšlený citát.
-       Zapnutí: odeber tento komentář a doplň text i podpis.
+  <!-- OHLASY RODIČŮ – rotující úryvky
+       Celé znění je na /co-rikaji-rodice/, tady jsou jen krátké úryvky, aby
+       sekce nepřerostla zbytek stránky. Každý úryvek je doslovný a souvislý,
+       nic se nespojuje přes vynechávky. Jména rodin sem nepatří.
+       Nový ohlas = další <blockquote class="ohlas"> sem (bez třídy je-videt)
+       a celé znění na stránku s ohlasy. Skript v patičce se postará o zbytek. -->
   <section class="section">
     <div class="wrap">
       <div class="section-head">
-        <p class="eyebrow">Co říkají rodiče</p>
-        <h2>DOPLNIT nadpis</h2>
+        <p class="eyebrow">Ohlasy</p>
+        <h2>Co říkají rodiče</h2>
       </div>
-      <div class="quote">
-        <blockquote>DOPLNIT citaci</blockquote>
-        <p class="who">DOPLNIT jméno a vztah k dítěti</p>
+
+      <div class="ohlasy" id="ohlasy">
+        <blockquote class="bublina ohlas je-videt">
+          <p>Naše děti se do školy opravdu těší, což považuji za největší důkaz, že se zde cítí dobře a bezpečně. Základem je partnerský přístup a vzájemný respekt mezi učiteli, dětmi i rodiči.</p>
+        </blockquote>
+        <blockquote class="bublina ohlas">
+          <p>Krok není jen škola, jsou to přátelé, kamarádi, legrace, respekt, podpora, bezpečí, důvěra, pochopení, odvaha, poznání, růst, nabídka; je to pocit, pro malé i velké, že svět je ještě v pořádku.</p>
+        </blockquote>
+        <blockquote class="bublina ohlas">
+          <p>Žádný zkostnatělý systém – děti vyjadřují své názory, nebojí se ptát a hledají vlastní řešení. Není to škola, která dá dětem pouze znalosti, ale škola, která je naučí dané znalosti v životě využít a vytěžit z nich.</p>
+        </blockquote>
+        <blockquote class="bublina ohlas">
+          <p>V Kroku pracují opravdoví profíci, kteří jsou s dětmi skvělí, dokáží je motivovat, dát jim konstruktivní kritiku i pochválit. Děti chodí ze školy nadšené, protože se spoustu času učí hrou.</p>
+        </blockquote>
+        <blockquote class="bublina ohlas">
+          <p>Komornější menší prostředí školy, kde se naše dítě cítí bezpečně. Menší skupina dětí ve třídě, takže pozornost se dostane všem.</p>
+        </blockquote>
       </div>
+
+      <p style="margin-top:clamp(1.5rem,3vw,2rem)"><a class="btn btn-ghost" href="co-rikaji-rodice/">Přečíst celé ohlasy &rarr;</a></p>
     </div>
   </section>
-  ============================================================ -->
+
 
 
   <!-- ============================================================
@@ -374,6 +392,37 @@
 <script>
   // Rozbalení mobilního menu. Vlastní blok schválně: kdyby spadl jakýkoli
   // jiný skript na stránce, menu musí fungovat dál.
+  // ROTACE OHLASŮ RODIČŮ
+  // Vlastní blok schválně: kdyby spadl, zůstane vidět první ohlas a stránka
+  // funguje dál. Nic se nenačítá zvenčí, úryvky jsou přímo v HTML.
+  (function () {
+    var box = document.getElementById("ohlasy");
+    if (!box) return;
+    var q = box.querySelectorAll(".ohlas");
+    if (q.length < 2) return;
+
+    var i = 0, timer = null;
+    function dalsi() {
+      q[i].classList.remove("je-videt");
+      i = (i + 1) % q.length;
+      q[i].classList.add("je-videt");
+    }
+    function jed() { if (!timer) timer = setInterval(dalsi, 9000); }
+    function stuj() { clearInterval(timer); timer = null; }
+
+    // Čtenář musí mít možnost text zastavit – devět sekund nemusí stačit
+    // každému. Stačí najet myší nebo se dostat klávesnicí na odkaz uvnitř.
+    box.addEventListener("mouseenter", stuj);
+    box.addEventListener("mouseleave", jed);
+    box.addEventListener("focusin", stuj);
+    box.addEventListener("focusout", jed);
+    // Na uspané kartě nemá smysl přepínat do prázdna.
+    document.addEventListener("visibilitychange", function () {
+      if (document.hidden) stuj(); else jed();
+    });
+    jed();
+  })();
+
   (function () {
     var t = document.querySelector(".nav-toggle");
     var n = document.getElementById("nav");

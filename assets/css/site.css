@@ -1184,3 +1184,55 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
    Pozor: na dotykových displejích se title neukáže, je to doplněk navíc,
    ne nositel informace, bez které by role nedávala smysl. */
 .role .zkratka{text-decoration:underline dotted;text-underline-offset:.2em;cursor:help}
+
+/* --- ohlasy rodičů v bublinách -------------------------------------------
+   Zdánlivě mřížka, ve skutečnosti dva textové sloupce. Ohlasy jsou různě
+   dlouhé a v mřížce by vedle krátkého zela díra; takhle se poskládají těsně
+   pod sebe. break-inside drží bublinu vcelku, aby se nerozlomila přes sloupce.
+   Pozadí si bublina bere podle pořadí ze čtyř krokovských barev zesvětlených
+   na devět procent – barva je tu od toho, aby bubliny šly od sebe rozeznat,
+   ne aby křičela. Ocásek je trojúhelník z rámečků a musí mít stejnou barvu
+   jako pozadí, proto jede přes stejnou proměnnou. */
+.bubliny{columns:2;column-gap:clamp(1.25rem,3vw,2rem)}
+.bublina{
+  --bublina:color-mix(in srgb, var(--krok-1) 9%, #fff);
+  break-inside:avoid;margin:0 0 clamp(2rem,4vw,2.75rem);
+  background:var(--bublina);border-radius:20px;
+  padding:clamp(1.4rem,3vw,2rem) clamp(1.4rem,3vw,2rem) clamp(1.5rem,3.2vw,2.1rem);
+  position:relative;color:var(--ink-2);
+  display:flex;flex-direction:column;gap:.9rem;
+}
+.bublina:nth-child(4n+2){--bublina:color-mix(in srgb, var(--krok-2) 9%, #fff)}
+.bublina:nth-child(4n+3){--bublina:color-mix(in srgb, var(--krok-3) 9%, #fff)}
+.bublina:nth-child(4n+0){--bublina:color-mix(in srgb, var(--krok-4) 9%, #fff)}
+.bublina p{margin:0}
+/* ocásek vlevo dole, aby bublina vypadala, že ji někdo říká */
+.bublina::after{
+  content:"";position:absolute;left:clamp(1.6rem,3.4vw,2.4rem);top:100%;
+  width:0;height:0;border:14px solid transparent;
+  border-top-color:var(--bublina);border-bottom:0;
+}
+@media (max-width:760px){
+  .bubliny{columns:1}
+}
+
+/* --- rotující ohlas na homepage ------------------------------------------
+   Všechny úryvky jsou v HTML; bez JavaScriptu zůstane vidět ten první a
+   stránka dává smysl dál. Skript jen přehazuje třídu. Pevná spodní hranice
+   výšky drží obsah pod ohlasem na místě, aby stránka při přepnutí neposkakovala. */
+/* Změřeno: nejvyšší z dnešních úryvků má na desktopu 154 px, na mobilu 203 px.
+   Spodní hranice je kousek nad tím, aby tlačítko pod ohlasem při přepnutí
+   neposkakovalo. Když přibude výrazně delší úryvek, hodnotu sem přeměř znovu. */
+.ohlasy{min-height:11rem}
+/* Na homepage je ohlas vystavený sám za sebe, tak ho necháme o kousek
+   větší – ale ne přes celou šířku stránky, přes 1120 px se řádek čte mizerně. */
+.ohlasy .bublina{max-width:58ch;font-size:clamp(1.02rem,1.6vw,1.15rem);line-height:1.6}
+.ohlasy .ohlas{display:none}
+.ohlasy .ohlas.je-videt{display:flex;animation:ohlas-nabehne .45s ease}
+@keyframes ohlas-nabehne{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){
+  .ohlasy .ohlas.je-videt{animation:none}
+}
+@media (max-width:760px){
+  .ohlasy{min-height:13.5rem}
+}
