@@ -1089,6 +1089,13 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 #prihlaseni .zasady p:last-child{margin-top:.5rem}
 /* Plný termín. Žádná nová barva ani rámeček – jen tiché konstatování. */
 .obsazeno{font-weight:700;color:var(--ink-3)}
+/* Nabídka místa náhradníka. Nese jediný zbylý odkaz v sekci, kde jsou jinak
+   samá „Obsazeno“, proto ta svislá linka – ať se do ní dá trefit očima. */
+.nahradnici{
+  margin-top:clamp(1.5rem,3vw,2rem);border-left:3px solid var(--krok-2);
+  padding:.15rem 0 .15rem 1.15rem;max-width:56ch;color:var(--ink-2);
+}
+.nahradnici a{color:var(--action);font-weight:700;text-decoration:none}
 /* Termíny jsou tři. Mřížka se řídí šířkou sloupce, takže se z trojice sama
    stane dvojice a na mobilu jeden sloupec pod sebou; proto tady nestačilo
    nechat .zasady na pevných dvou sloupcích. */
