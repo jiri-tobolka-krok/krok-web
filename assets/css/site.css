@@ -178,7 +178,13 @@ ul{margin:0;padding:0;list-style:none}
    přednačtení řeší <link rel="preload"> v hlavičce. */
 .hero-obr{
   position:absolute;inset:0;z-index:-2;
-  background:url(../img/hero-trida.jpg) 50% 50%/cover no-repeat;
+  /* Ukotveno nahoře, ne na střed. Do 1472 px šířky má hero přesně poměr
+     fotky 2:1 a neořezává se nic; nad tím se výška zastaví na 46rem, hero
+     se stává širším než 2:1 a cover musí ubrat vodorovný pruh. Při 50 %
+     ubíral půlku nahoře – a pedagožka u tabule má hlavu na 8.–50. pixelu
+     z tisíce, takže jí ve velkém okně mizela. Zdola je pod stoly podlaha,
+     o kterou nejde. */
+  background:url(../img/hero-trida.jpg) 50% 0%/cover no-repeat;
   filter:saturate(var(--foto-sytost)) contrast(var(--foto-kontrast));
 }
 .hero::before{
