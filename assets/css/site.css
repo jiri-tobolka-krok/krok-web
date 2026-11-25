@@ -1249,3 +1249,13 @@ body.en .facts{padding-block:clamp(1.5rem,3vw,2.25rem)}
 @media (max-width:760px){
   .ohlasy{min-height:13.5rem}
 }
+
+/* --- vložená přihláška ze Školy OnLine -----------------------------------
+   Rám musí být vysoký: uvnitř je celá stránka cizí aplikace včetně její
+   hlavičky a patičky, a vnitřní posuvník v rámu se ovládá mizerně, obzvlášť
+   na dotykovém displeji. Radši ať se roluje celá stránka. */
+.prihlaska-ram{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--paper)}
+.prihlaska-ram iframe{display:block;width:100%;height:min(120vh,1050px);border:0}
+@media (max-width:760px){
+  .prihlaska-ram iframe{height:min(150vh,1200px)}
+}
